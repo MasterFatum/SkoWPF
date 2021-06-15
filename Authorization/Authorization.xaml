@@ -1,0 +1,41 @@
+﻿<Window x:Name="AuthorizeForm" x:Class="Authorization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Авторизация пользователя" Height="410.125" Width="406.589" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" Closing="AuthorizeForm_Closing">
+    <Grid>
+        <TextBox Name="TxbxLogin"  HorizontalAlignment="Left" Height="36" Margin="89,147,0,0" VerticalAlignment="Top" Width="286" FontSize="18" FontWeight="Bold" TextAlignment="Left" TabIndex="1">
+        </TextBox>
+        <Label Content="E-mail" HorizontalAlignment="Left" Margin="12,149,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="12,192,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button Name="BtnAuthorize" HorizontalAlignment="Left" Margin="12,288,0,0" VerticalAlignment="Top" Width="132" Height="57" FontSize="18" Click="BtnAuthorize_Click" TabIndex="5">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Source/Connected_32px.png"  Height="29"/>
+                <TextBlock Text=" Войти" Height="26"/>
+            </StackPanel>
+        </Button>
+        <GroupBox Header="Войти как..." HorizontalAlignment="Left" Height="100" Margin="89,32,0,0" VerticalAlignment="Top" Width="286" FontSize="18">
+            <ComboBox Name="CbxAuthorizeAs" HorizontalAlignment="Left" Margin="32,16,0,0" VerticalAlignment="Top" Width="208" HorizontalContentAlignment="Center">
+                <ComboBoxItem IsSelected="True">Преподаватель</ComboBoxItem>
+                <ComboBoxItem Content="Администратор"/>
+            </ComboBox>
+        </GroupBox>
+        <Button x:Name="BtnAuthorizeExit" HorizontalAlignment="Left" Margin="243,288,0,0" VerticalAlignment="Top" Width="132" Height="57" FontSize="18" Click="BtnAuthorizeExit_Click" TabIndex="4">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Source/Shutdown_32px.png"  Height="29"/>
+                <TextBlock Text=" Выйти" Height="26"/>
+            </StackPanel>
+        </Button>
+        <CheckBox x:Name="ChkBoxSaveUser" Content="Запомнить пользователя" Margin="95,249,86,0" VerticalAlignment="Top" FontSize="16" TabIndex="3"/>
+        <PasswordBox x:Name="TxbxPassword" HorizontalAlignment="Left" Margin="89,192,0,0" VerticalAlignment="Top" Width="286" Height="34" FontSize="18" TabIndex="2">
+        </PasswordBox>
+        <Menu HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="48">
+            <MenuItem Header="Меню">
+                <MenuItem Header="Регистрация нового пользователя" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <ProgressBar x:Name="pb_userLoginProgress" HorizontalAlignment="Left" Height="13" Margin="10,353,0,0" VerticalAlignment="Top" Width="365"/>
+    </Grid>
+</Window>
