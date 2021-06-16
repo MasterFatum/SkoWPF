@@ -39,6 +39,7 @@ namespace BLL.Concrete
             dataGrid.Columns[8].Header = "Дата регистрации";
             dataGrid.Columns[9].Visibility = Visibility.Hidden;
             dataGrid.Columns[10].Header = "Онлайн";
+            dataGrid.Columns[11].Header = "Последний вход";
 
         }
 

@@ -239,6 +239,11 @@ namespace BLL.Concrete
             return null;
         }
 
+        public Task<User> ValidationAdminAsync(string username, string password)
+        {
+            return Task<User>.Factory.StartNew(() => ValidationAdmin(username, password));
+        }
+
         public void SokoDispose()
         {
             skoContext.Dispose();
@@ -286,6 +291,9 @@ namespace BLL.Concrete
 
                 if (user != null)
                 {
+                    user.LastLoginDate =
+                        String.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}");
+
                     user.IsOnline = true;
 
                     skoContext.Users.AddOrUpdate(user);

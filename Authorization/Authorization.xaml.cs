@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,10 +34,11 @@ namespace Authorization
         }
 
         private void BtnAuthorize_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+
             LoginProgress();
             BtnAuthorize.IsEnabled = false;
-
+            
         }
 
         public async void LoginProgress()
@@ -100,9 +100,11 @@ namespace Authorization
 
                         //АВТОРИЗАЦИЯ АДМИНИСТРАТОРА
                         case "Администратор":
-                            User userAdmin = userRepository.ValidationAdmin(TxbxLogin.Text.Trim(), TxbxPassword.Password);
+                            Task<User> userAdmin = userRepository.ValidationAdminAsync(TxbxLogin.Text.Trim(), TxbxPassword.Password);
 
-                            if (userAdmin != null)
+                            User admin = userAdmin.Result;
+
+                            if (admin != null)
                             {
                                 if (ChkBoxSaveUser.IsChecked == true)
                                 {
@@ -123,7 +125,7 @@ namespace Authorization
 
                                 Visibility = Visibility.Collapsed;
                                 Visibility = Visibility.Hidden;
-                                new AdminSystem.MainWindow(userAdmin).ShowDialog();
+                                new AdminSystem.MainWindow(admin).ShowDialog();
                             }
                             else
                             {
@@ -132,13 +134,13 @@ namespace Authorization
                             }
                             break;
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    Application.Current.Shutdown();
-                }
-            }
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show(ex.Message);
+                   Application.Current.Shutdown();
+               }
+        }
 
         private void AuthorizeForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

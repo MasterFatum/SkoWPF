@@ -27,5 +27,7 @@ namespace BLL.Entities
 
         public bool IsOnline { get; set; }
 
+        public string LastLoginDate { get; set; }
+
     }
 }

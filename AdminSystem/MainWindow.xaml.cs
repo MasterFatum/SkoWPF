@@ -34,7 +34,7 @@ namespace AdminSystem
 
             DataGridAllUsers.ItemsSource = userRepository.GetAllUser();
 
-            LblAllUsers.Content = userRepository.GetAllUsersCount();
+            LblAllUsersCount.Content = userRepository.GetAllUsersCount();
         }
 
         private void BtnMainExit_Click(object sender, RoutedEventArgs e)
@@ -129,6 +129,14 @@ namespace AdminSystem
         private void BtnUsersIsOnline_Click(object sender, RoutedEventArgs e)
         {
             new FormUsersOnline().ShowDialog();
+        }
+
+        private void TxbxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BtnSearch_Click(BtnSearch, null);
+            }
         }
     }
 }

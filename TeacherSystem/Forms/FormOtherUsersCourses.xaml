@@ -5,38 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserSystem.FormsAddEducations"
         mc:Ignorable="d"
-        Title="Курсы других пользователей" Height="450" Width="856.702" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Курсы других пользователей" Height="459.278" Width="848.583" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid x:Name="DataGridOtherUsersCategory" IsReadOnly="True" HorizontalAlignment="Left" Height="297" Margin="10,110,0,0" VerticalAlignment="Top" Width="819" FontSize="16" MouseDoubleClick="DataGridOtherUsersCategory_MouseDoubleClick"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,12,322" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="../Source/Cancel_32px.png" Height="29"/>
-                <TextBlock Text=" Закрыть" Height="26"/>
-            </StackPanel>
-        </Button>
-        <ComboBox x:Name="CbxCategory" HorizontalAlignment="Right" Margin="0,65,357,0" VerticalAlignment="Top" Width="288" FontSize="18">
-            <ComboBoxItem IsSelected="True" Content="Все категории" />
-            <ComboBoxItem Content="Индивидуальная образовательная траектория"/>
-            <ComboBoxItem Content="Курсы, семинары, вебинары"/>
-            <ComboBoxItem Content="Публикации, выступления"/>
-            <ComboBoxItem Content="Освоение и применение новых технологий"/>
-            <ComboBoxItem Content="Участие в конкурсах"/>
-            <ComboBoxItem Content="Обобщение и распространение педаг. опыта"/>
-            <ComboBoxItem Content="Размещение материалов на сайте"/>
-            <ComboBoxItem Content="Другое"/>
-        </ComboBox>
-        <ComboBox x:Name="CbxUsers" HorizontalAlignment="Right" Margin="0,17,357,0" VerticalAlignment="Top" Width="288" FontSize="18">
-        </ComboBox>
-        <Label Content="Пользователь" HorizontalAlignment="Left" Margin="65,17,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Категория" HorizontalAlignment="Left" Margin="65,64,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button Name="BtnShowOtherUsersCourses" HorizontalAlignment="Right" Margin="0,0,204,320" VerticalAlignment="Bottom" Width="132" Height="78" FontSize="18" Click="BtnShowOtherUsersCourses_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="../Source/Filter_32px.png" Height="29"/>
-                <TextBlock Text=" Показать" Height="26"/>
-            </StackPanel>
-        </Button>
-        <Image Source="../Source/Users_32px.png" HorizontalAlignment="Left" Height="35" Margin="18,16,0,0" VerticalAlignment="Top" Width="36"/>
-        <Image Source="../Source/Category_32px.png" HorizontalAlignment="Left" Height="35" Margin="18,64,0,0" VerticalAlignment="Top" Width="36"/>
+        <DataGrid x:Name="DataGridOtherUsersCategory" IsReadOnly="True" HorizontalAlignment="Left" Height="303" Margin="10,107,0,0" VerticalAlignment="Top" Width="812" FontSize="16" MouseDoubleClick="DataGridOtherUsersCategory_MouseDoubleClick"/>
+
+        <Canvas HorizontalAlignment="Left" Height="421" Margin="10,0,0,0" VerticalAlignment="Top" Width="823">
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="124" Height="65" FontSize="18" Click="Button_Click" Canvas.Left="689" Canvas.Top="22">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Source/Cancel_32px.png" Height="29"/>
+                    <TextBlock Text=" Закрыть" Height="26"/>
+                </StackPanel>
+            </Button>
+            <ComboBox x:Name="CbxCategory" HorizontalAlignment="Right" VerticalAlignment="Top" Width="332" FontSize="18" Canvas.Left="181" Canvas.Top="57">
+                <ComboBoxItem IsSelected="True" Content="Все категории" />
+                <ComboBoxItem Content="Индивидуальная образовательная траектория"/>
+                <ComboBoxItem Content="Курсы, семинары, вебинары"/>
+                <ComboBoxItem Content="Публикации, выступления"/>
+                <ComboBoxItem Content="Освоение и применение новых технологий"/>
+                <ComboBoxItem Content="Участие в конкурсах"/>
+                <ComboBoxItem Content="Обобщение и распространение педаг. опыта"/>
+                <ComboBoxItem Content="Размещение материалов на сайте"/>
+                <ComboBoxItem Content="Другое"/>
+            </ComboBox>
+            <ComboBox x:Name="CbxUsers" HorizontalAlignment="Right" VerticalAlignment="Top" Width="332" FontSize="18" Canvas.Left="181" Canvas.Top="22"/>
+            <Label Content="Пользователь" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="54" Canvas.Top="18"/>
+            <Label Content="Категория" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="54" Canvas.Top="55"/>
+            <Button Name="BtnShowOtherUsersCourses" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="159" Height="65" FontSize="18" Click="BtnShowOtherUsersCourses_Click" Canvas.Left="525" Canvas.Top="22">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Source/Filter_32px.png" Height="29"/>
+                    <TextBlock Text=" Показать" Height="26"/>
+                </StackPanel>
+            </Button>
+            <Image Source="../Source/Users_32px.png" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="36" Canvas.Left="7" Canvas.Top="17"/>
+            <Image Source="../Source/Category_32px.png" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="36" Canvas.Left="7" Canvas.Top="55"/>
+        </Canvas>
 
     </Grid>
 </Window>
