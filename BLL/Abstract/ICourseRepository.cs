@@ -13,8 +13,6 @@ namespace BLL.Abstract
 
         void EditCourse(Course course);
 
-        IEnumerable<Course> GetAllCategory();
-
         IEnumerable<Course> GetCoursesByUserId(int userId);
 
         IEnumerable<Course> GetCoursesByCategory(int userId, string position);

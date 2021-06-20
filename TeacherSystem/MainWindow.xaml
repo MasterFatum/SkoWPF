@@ -1,11 +1,11 @@
-﻿<Window x:Name="mainForm" x:Class="TeacherSystem.MainWindow"
+﻿<Window x:Name="MainForm" x:Class="TeacherSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserSystem"
         mc:Ignorable="d"
-        Title="Система управления качеством образования (Интерфейс преподавателя) Версия 2.4" Height="679.055" Width="1058" MinHeight="680" MinWidth="1058" WindowStartupLocation="CenterScreen" Closing="MainForm_Closing" Loaded="MainForm_Loaded">
+        Title="Система управления качеством образования (Интерфейс преподавателя) Версия 2.5" Height="679.055" Width="1058" MinHeight="680" MinWidth="1058" WindowStartupLocation="CenterScreen" Closing="MainForm_Closing" Loaded="MainForm_Loaded">
     <Grid Margin="0,0,0,12">
         <DataGrid x:Name="DataGridMain" IsReadOnly="True" Margin="10,41,245,64" FontSize="16" SelectionChanged="DataGridMain_SelectionChanged" MouseDoubleClick="DataGridMain_MouseDoubleClick" LoadingRow="DataGridMain_LoadingRow"/>
         <Button x:Name="BtnMainExit"  HorizontalAlignment="Right" Margin="0,0,10,1" VerticalAlignment="Bottom" Width="117" Height="44" FontSize="18" Click="BtnMainExit_Click">

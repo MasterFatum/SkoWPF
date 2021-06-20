@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,18 +43,23 @@ namespace Authorization
         {
             try
             {
-                while (pb_userLoginProgress.Value != 100)
+                for (int i = 0; i <= 100; i++)
                 {
                     pb_userLoginProgress.Value++;
                     await Task.Delay(10);
                 }
+
                 UserLogin();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+            finally
+            {
+                pb_userLoginProgress.Value = 0;
+                BtnAuthorize.IsEnabled = true;
+            }
         }
 
         private void UserLogin()
@@ -98,7 +102,7 @@ namespace Authorization
 
                             Visibility = Visibility.Collapsed;
                             Visibility = Visibility.Hidden;
-                            new TeacherSystem.MainWindow(user).ShowDialog();
+                             new TeacherSystem.MainWindow(user).ShowDialog();
                         }
                         else
                         {

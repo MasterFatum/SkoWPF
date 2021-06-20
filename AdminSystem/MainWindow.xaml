@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Система управления качеством образования (Интерфейс администратора) Версия 2.4" Height="600.78" Width="1104.308" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+        Title="Система управления качеством образования (Интерфейс администратора) Версия 2.5" Height="600.78" Width="1104.308" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Grid Margin="0,0,4,0">
         <Button x:Name="BtnExit"  HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="117" Height="45" FontSize="18" Click="BtnMainExit_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">

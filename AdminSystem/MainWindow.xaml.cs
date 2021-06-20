@@ -97,7 +97,7 @@ namespace AdminSystem
                 viewSource.Filter = o =>
                 {
                     User u = o as User;
-
+                    
                     return u.Lastname.ToString().Contains(TxbxSearch.Text.Trim());
 
                 };

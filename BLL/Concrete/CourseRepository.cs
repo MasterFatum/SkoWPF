@@ -93,11 +93,6 @@ namespace Bll.Concrete
             }
         }
 
-        public IEnumerable<Course> GetAllCategory()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Course> GetCoursesByUserId(int userId)
         {
             try
