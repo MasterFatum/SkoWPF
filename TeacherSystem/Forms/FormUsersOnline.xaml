@@ -6,17 +6,17 @@
         xmlns:local="clr-namespace:TeacherSystem.FormsAddEducations"
         mc:Ignorable="d"
         Title="Пользователи онлайн" Height="395" Width="674.56" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Margin="0,0,-14,9">
+    <Grid Background="#FFEFFFE2" Margin="0,0,4,9">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,0,24,0" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnClose_Click">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnClose_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/TeacherSystem;component/Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <ListBox x:Name="LbUserOnline" Margin="10,10,24,48" FontSize="18"/>
+        <ListBox x:Name="LbUserOnline" Background="#FFE2EBFB" Margin="10,10,10,48" FontSize="18"/>
         <Label Content="Пользователей онлайн:" HorizontalAlignment="Left" Margin="5,305,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="LblUsersCount" Content="0" HorizontalAlignment="Left" Margin="163,304,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Times New Roman"/>
 

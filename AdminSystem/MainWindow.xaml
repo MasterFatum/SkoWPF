@@ -5,45 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Система управления качеством образования (Интерфейс администратора) Версия 2.5" Height="600.78" Width="1104.308" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize">
-    <Grid Margin="0,0,4,0">
-        <Button x:Name="BtnExit"  HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="117" Height="45" FontSize="18" Click="BtnMainExit_Click">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Image Source="Source/Shutdown_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                <TextBlock Text=" Выйти" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="BtnMainUsersManage"  HorizontalAlignment="Right" Margin="0,0,908,10" VerticalAlignment="Bottom" Width="161" Height="44" FontSize="18" Click="BtnMainUsersManage_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="Source/Users_32px.png" Height="29"/>
-                <TextBlock Text=" Пользователи" Height="26"/>
-            </StackPanel>
-        </Button>
+    <Grid Background="#FFEFFFE2" Margin="0,0,4,0">
+        <Canvas Margin="10">
+            <Button x:Name="BtnExit" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="111" Height="43" FontSize="18" Click="BtnMainExit_Click" Canvas.Left="953" Canvas.Top="498">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Image Source="Source/Shutdown_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <TextBlock Text=" Выйти" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnMainUsersManage" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="161" Height="44" FontSize="18" Click="BtnMainUsersManage_Click" Canvas.Left="10" Canvas.Top="498" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Source/Users_32px.png" Height="29"/>
+                    <TextBlock Text=" Пользователи" Height="26"/>
+                </StackPanel>
+            </Button>
 
-        <GroupBox Header="Пользователи системы" HorizontalAlignment="Left" Height="462" Margin="10,0,0,75" VerticalAlignment="Bottom" Width="1074">
-            <DataGrid Name="DataGridAllUsers" IsReadOnly="True" Margin="0,0,-2,2" MouseDoubleClick="DataGridAllUsers_MouseDoubleClick" FontSize="16"/>
-        </GroupBox>
-        <TextBox Name="TxbxSearch"  HorizontalAlignment="Left" Height="44" Margin="393,509,0,0" VerticalAlignment="Top" Width="332" FontSize="18" TextChanged="TxbxSearch_TextChanged" KeyDown="TxbxSearch_KeyDown">
-        </TextBox>
-        <Button x:Name="BtnSearch"  HorizontalAlignment="Right" Margin="0,0,262,9" VerticalAlignment="Bottom" Width="93" Height="45" FontSize="18" Click="BtnSearch_Click">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Image Source="Source/Find User_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                <TextBlock Text=" Найти" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="BtnUpdate"  HorizontalAlignment="Right" Margin="0,0,132,9" VerticalAlignment="Bottom" Width="125" Height="45" FontSize="18" Click="BtnUpdate_Click">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Image Source="Source/Refresh_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                <TextBlock Text=" Обновить" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            </StackPanel>
-        </Button>
-        <Label x:Name="LblAllUsersCount" Content="100" HorizontalAlignment="Left" Margin="156,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.269" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="BtnSummaryStatement"  HorizontalAlignment="Right" Margin="0,0,697,9" VerticalAlignment="Bottom" Width="206" Height="45" FontSize="18" Click="BtnSummaryStatement_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="Source/SummaryStatemant32.png" Height="29"/>
-                <TextBlock Text=" Сводная ведомость" Height="26"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="BtnUsersIsOnline" Content="Пользователи онлайн" HorizontalAlignment="Right" Margin="0,4,4,0" VerticalAlignment="Top" Width="162" Click="BtnUsersIsOnline_Click"/>
-        <Label Content="Всего пользователей:" HorizontalAlignment="Left" Margin="10,-3,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <GroupBox Header="Пользователи системы" HorizontalAlignment="Left" Height="457" VerticalAlignment="Bottom" Width="1054" Canvas.Left="10" Canvas.Top="35">
+                <DataGrid Name="DataGridAllUsers" Background="#FFE2EBFB" IsReadOnly="True" Margin="0,10,-2,2" MouseDoubleClick="DataGridAllUsers_MouseDoubleClick" FontSize="16"/>
+            </GroupBox>
+            <TextBox Name="TxbxSearch" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="332" FontSize="18" TextChanged="TxbxSearch_TextChanged" KeyDown="TxbxSearch_KeyDown" Canvas.Left="387" Canvas.Top="498"/>
+            <Button x:Name="BtnSearch" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" Height="43" FontSize="18" Click="BtnSearch_Click" Canvas.Left="724" Canvas.Top="498">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Image Source="Source/Find User_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <TextBlock Text=" Найти" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnUpdate" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="125" Height="43" FontSize="18" Click="BtnUpdate_Click" Canvas.Left="822" Canvas.Top="498">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Image Source="Source/Refresh_32px.png" Height="29" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <TextBlock Text=" Обновить" Height="26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Button>
+            <Label x:Name="LblAllUsersCount" Content="100" HorizontalAlignment="Left" Margin="1275,3,-215,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.269" FontWeight="Bold" FontSize="14"/>
+            <Button x:Name="BtnSummaryStatement" Background="#FFE2EBFB"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="206" Height="44" FontSize="18" Click="BtnSummaryStatement_Click" Canvas.Left="176" Canvas.Top="498">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Source/SummaryStatemant32.png" Height="29"/>
+                    <TextBlock Text=" Сводная ведомость" Height="26"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnUsersIsOnline" Background="#FFE2EBFB" Content="Пользователи онлайн" HorizontalAlignment="Right" VerticalAlignment="Top" Width="162" Click="BtnUsersIsOnline_Click" Canvas.Left="902" Canvas.Top="10" Height="25"/>
+            <Label Content="Всего пользователей:" HorizontalAlignment="Left" Margin="1129,2,-183,0" VerticalAlignment="Top" FontSize="14"/>
+        </Canvas>
     </Grid>
 </Window>

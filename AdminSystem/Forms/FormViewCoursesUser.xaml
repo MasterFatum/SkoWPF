@@ -6,10 +6,9 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Курсы пользователя" Height="563.789" Width="1046.733" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
-
-        <DataGrid x:Name="DataGridUserCourses" IsReadOnly="True" Margin="10,103,18,58" FontSize="16" MouseDoubleClick="DataGridUserCourses_MouseDoubleClick_1" LoadingRow="DataGridUserCourses_LoadingRow"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,18,8" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
+    <Grid Background="#FFEFFFE2">
+        <DataGrid x:Name="DataGridUserCourses" Background="#FFE2EBFB" IsReadOnly="True" Margin="10,103,18,58" FontSize="16" MouseDoubleClick="DataGridUserCourses_MouseDoubleClick_1" LoadingRow="DataGridUserCourses_LoadingRow"/>
+        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" Margin="0,0,18,8" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
@@ -28,14 +27,14 @@
         </ComboBox>
         <Label Content="Пользователь" HorizontalAlignment="Left" Margin="72,17,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="72,58,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="BtnShowOtherUsersCourses" HorizontalAlignment="Left" Margin="494,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnShowOtherUsersCourses_Click">
+        <Button x:Name="BtnShowOtherUsersCourses" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="494,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnShowOtherUsersCourses_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Search Property_32px.png" Height="29"/>
                 <TextBlock Text=" Показать" Height="26"/>
             </StackPanel>
         </Button>
         <Label Name="LblUsername" Content="Имя пользователя" HorizontalAlignment="Left" Margin="209,17,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button Name="BtnUpdate" HorizontalAlignment="Left" Margin="631,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnUpdate_Click">
+        <Button Name="BtnUpdate" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="631,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnUpdate_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Refresh_32px.png" Height="29"/>
                 <TextBlock Text=" Обновить" Height="26"/>

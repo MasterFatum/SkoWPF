@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Authorization"
         mc:Ignorable="d"
         Title="Регистрация нового пользователя" Height="489.631" Width="549.432" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
-    <Grid>
+    <Grid Background="#FFEFFFE2">
         <Button x:Name="BtnRegistration" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" Width="151" Height="53" FontSize="18" Click="BtnRegistration_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Add User _32px.png"  Height="29"/>

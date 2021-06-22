@@ -24,6 +24,9 @@ namespace TeacherSystem
 
             DataGridMain.ItemsSource = courseRepository.GetCoursesByUserId(user.Id);
 
+            int yearNow = CbxYear.Items.Add(DateTime.Now.Year);
+            CbxYear.SelectedIndex = yearNow;
+
             TxbxAllRating.Text = courseRepository.AllRating(user.Id);
 
             CbxMainShowCategory.SelectedIndex = -1;
@@ -228,6 +231,11 @@ namespace TeacherSystem
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

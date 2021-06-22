@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Пользователи онлайн" Height="395" Width="541.197" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
-        <ListBox x:Name="LbUserOnline" Margin="10,10,10,57" FontSize="18"/>
-        <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnClose_Click">
+    <Grid Background="#FFEFFFE2">
+        <ListBox x:Name="LbUserOnline" Background="#FFE2EBFB" Margin="10,10,10,57" FontSize="18"/>
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnClose_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/AdminSystem;component/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>

@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Управление пользователями" Height="501.136" Width="984.764" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Margin="0,0,0,-18">
-        <Button x:Name="BtnClose" HorizontalAlignment="Left" Margin="827,420,0,0" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click" >
+    <Grid Background="#FFEFFFE2" Margin="0,0,0,-18">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="827,420,0,0" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <DataGrid x:Name="DataGridAllUsers" IsReadOnly="True" Margin="10,10,344,0" VerticalAlignment="Top" FontSize="16" Height="405" SelectionChanged="DataGridAllUsers_SelectionChanged" />
+        <DataGrid x:Name="DataGridAllUsers" Background="#FFE2EBFB" IsReadOnly="True" Margin="10,10,344,0" VerticalAlignment="Top" FontSize="16" Height="405" SelectionChanged="DataGridAllUsers_SelectionChanged" />
         <TextBox x:Name="TxbxUserId" IsEnabled="False" HorizontalAlignment="Right" Height="25" Margin="0,20,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" TextAlignment="Center" FontSize="14" FontWeight="Bold">
         </TextBox>
         <Label Content="ID" HorizontalAlignment="Left" Margin="634,13,0,0" VerticalAlignment="Top" FontSize="18"/>
@@ -35,19 +35,19 @@
         </TextBox>
         <TextBox x:Name="TxbxPassword" IsEnabled="False" HorizontalAlignment="Right" Height="25" Margin="0,278,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" TextAlignment="Center" FontSize="14" FontWeight="Bold">
         </TextBox>
-        <Button x:Name="BtnChangeUser" HorizontalAlignment="Left" Margin="165,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnChangeUser_Click" >
+        <Button x:Name="BtnChangeUser" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="165,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnChangeUser_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Edit User_32px.png" Height="29"/>
                 <TextBlock Name="TxBlChangeUser" Text=" Изменить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnUpdateListUsers" HorizontalAlignment="Left" Margin="495,420,0,0" VerticalAlignment="Top" Width="132" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnUpdateListUsers_Click" >
+        <Button x:Name="BtnUpdateListUsers" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="495,420,0,0" VerticalAlignment="Top" Width="132" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnUpdateListUsers_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Refresh_32px.png" Height="29"/>
                 <TextBlock Text=" Обновить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnDeleteUser" HorizontalAlignment="Left" Margin="320,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnDeleteUser_Click" >
+        <Button x:Name="BtnDeleteUser" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="320,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.5,0.5" FontSize="18" Click="BtnDeleteUser_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Delete User_32px.png" Height="29"/>
                 <TextBlock Text=" Удалить" Height="26"/>
@@ -59,7 +59,7 @@
         <ComboBox Name="CbxPrivilege" IsEnabled="False" HorizontalAlignment="Left" Margin="737,363,0,0" VerticalAlignment="Top" Width="92" Height="25" FontSize="14" FontWeight="Bold">
         </ComboBox>
         <Label Content="Права" HorizontalAlignment="Left" Margin="634,356,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.4,1.49"/>
-        <Button x:Name="BtnAddUser" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnAddUser_Click" >
+        <Button x:Name="BtnAddUser" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="150" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnAddUser_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Add User _32px.png" Height="29"/>
                 <TextBlock x:Name="TxBlAddUser" Text=" Добавить" Height="26"/>

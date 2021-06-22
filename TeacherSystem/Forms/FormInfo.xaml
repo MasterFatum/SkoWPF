@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:UserSystem.FormsAddEducations"
         mc:Ignorable="d"
         Title="Информация о программе" Height="323.969" Width="486.327" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="BtnClose" Margin="320,242,0,0" FontSize="18" Click="BtnClose_Click" HorizontalAlignment="Left" Width="132" Height="35" VerticalAlignment="Top">
+    <Grid Background="#FFEFFFE2">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" Margin="320,242,0,0" FontSize="18" Click="BtnClose_Click" HorizontalAlignment="Left" Width="132" Height="35" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Сводная ведомость" Height="570.095" Width="543.327" WindowStyle="ToolWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
-        <Button x:Name="BtnClose" HorizontalAlignment="Left" Margin="383,489,0,0" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click">
+    <Grid Background="#FFEFFFE2">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="383,489,0,0" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/AdminSystem;component/Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
@@ -17,7 +17,7 @@
         </ComboBox>
         <Label Content="Пользователь" HorizontalAlignment="Left" Margin="57,18,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Image Source="../Source/Users_32px.png" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="42"/>
-        <DataGrid x:Name="DataGridSummaryStatement" HorizontalAlignment="Left" Height="398" Margin="10,80,0,0" VerticalAlignment="Top" Width="507" FontSize="16" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridSummaryStatement" Background="#FFE2EBFB" HorizontalAlignment="Left" Height="398" Margin="10,80,0,0" VerticalAlignment="Top" Width="507" FontSize="16" IsReadOnly="True"/>
         <Label Content="Общее количество баллов:" HorizontalAlignment="Left" Margin="10,486,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label Name="LblSummary" Content="0" HorizontalAlignment="Left" Margin="289,480,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Background="White" Foreground="Green"/>
     </Grid>

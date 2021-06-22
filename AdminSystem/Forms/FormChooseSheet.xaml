@@ -6,20 +6,20 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Выберите ведомость" Height="194.167" Width="260.333" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="BtnGeneral" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="222" Height="35" FontSize="18" Click="BtnGeneral_Click">
+    <Grid Background="#FFEFFFE2">
+        <Button x:Name="BtnGeneral" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="222" Height="35" FontSize="18" Click="BtnGeneral_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/User Group_32px.png" Height="29"/>
                 <TextBlock Text=" Общая" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnClose" HorizontalAlignment="Left" Margin="58,104,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClose_Click" >
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="58,104,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClose_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnIndividual" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="222" Height="35" FontSize="18" Click="BtnIndividual_Click" >
+        <Button x:Name="BtnIndividual" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="222" Height="35" FontSize="18" Click="BtnIndividual_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/User_32px.png" Height="29"/>
                 <TextBlock Text=" Индивидуальная" Height="26"/>

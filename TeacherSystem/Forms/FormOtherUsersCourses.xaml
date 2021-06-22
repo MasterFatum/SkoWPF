@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:UserSystem.FormsAddEducations"
         mc:Ignorable="d"
         Title="Курсы других пользователей" Height="459.278" Width="848.583" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-    <Grid>
-        <DataGrid x:Name="DataGridOtherUsersCategory" IsReadOnly="True" HorizontalAlignment="Left" Height="303" Margin="10,107,0,0" VerticalAlignment="Top" Width="812" FontSize="16" MouseDoubleClick="DataGridOtherUsersCategory_MouseDoubleClick"/>
+    <Grid Background="#FFEFFFE2">
+        <DataGrid x:Name="DataGridOtherUsersCategory" Background="#FFE2EBFB" IsReadOnly="True" HorizontalAlignment="Left" Height="303" Margin="10,107,0,0" VerticalAlignment="Top" Width="812" FontSize="16" MouseDoubleClick="DataGridOtherUsersCategory_MouseDoubleClick"/>
 
         <Canvas HorizontalAlignment="Left" Height="421" Margin="10,0,0,0" VerticalAlignment="Top" Width="823">
-            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="124" Height="65" FontSize="18" Click="Button_Click" Canvas.Left="689" Canvas.Top="22">
+            <Button Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="124" Height="65" FontSize="18" Click="Button_Click" Canvas.Left="689" Canvas.Top="22">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Source/Cancel_32px.png" Height="29"/>
                     <TextBlock Text=" Закрыть" Height="26"/>
@@ -30,7 +30,7 @@
             <ComboBox x:Name="CbxUsers" HorizontalAlignment="Right" VerticalAlignment="Top" Width="332" FontSize="18" Canvas.Left="181" Canvas.Top="22"/>
             <Label Content="Пользователь" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="54" Canvas.Top="18"/>
             <Label Content="Категория" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="54" Canvas.Top="55"/>
-            <Button Name="BtnShowOtherUsersCourses" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="159" Height="65" FontSize="18" Click="BtnShowOtherUsersCourses_Click" Canvas.Left="525" Canvas.Top="22">
+            <Button Name="BtnShowOtherUsersCourses" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="159" Height="65" FontSize="18" Click="BtnShowOtherUsersCourses_Click" Canvas.Left="525" Canvas.Top="22">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Source/Filter_32px.png" Height="29"/>
                     <TextBlock Text=" Показать" Height="26"/>

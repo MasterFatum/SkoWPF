@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Добавление новой записи в ваше портфолио" Height="500" Width="615" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-    <Grid>
+    <Grid Background="#FFEFFFE2">
         <Label Content="Название" HorizontalAlignment="Left" Margin="27,91,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox Name="TxbxTitle" HorizontalAlignment="Left" Height="31" Margin="124,94,0,0" Text="" VerticalAlignment="Top" Width="457" FontSize="18">
         </TextBox>
         <Label Content="Описание" HorizontalAlignment="Left" Margin="27,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="18"/>
         <TextBox Name="TxbxDescription" HorizontalAlignment="Left" Height="183" Margin="124,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="457" FontSize="16">
         </TextBox>
-        <Button Name="BtnAdd" Margin="10,0,0,6" VerticalAlignment="Bottom" Width="132" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnAdd_Click" HorizontalAlignment="Left">
+        <Button Name="BtnAdd" Background="#FFE2EBFB" Margin="10,0,0,6" VerticalAlignment="Bottom" Width="132" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnAdd_Click" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Save_32px.png" Height="29"/>
                 <TextBlock Text=" Сохранить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button Name="BtnClose" HorizontalAlignment="Right" Margin="0,0,17,6" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
+        <Button Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Right" Margin="0,0,17,6" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
@@ -27,7 +27,7 @@
         <Label Content="Категория" HorizontalAlignment="Left" Margin="305,18,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox x:Name="TxbxSelectedCategory" IsEnabled="False" HorizontalAlignment="Left" IsReadOnly="False" Height="31" Margin="164,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="380" FontSize="18" TextAlignment="Center" FontWeight="Bold">
         </TextBox>
-        <Button Name="BtnClear" HorizontalAlignment="Left" Margin="236,421,0,0" Width="132" FontSize="18" Click="BtnClear_Click" Height="35" VerticalAlignment="Top">
+        <Button Name="BtnClear" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="236,421,0,0" Width="132" FontSize="18" Click="BtnClear_Click" Height="35" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Clear_32px.png"  Height="29"/>
                 <TextBlock Text=" Очистить" Height="26"/>
@@ -38,7 +38,7 @@
         </TextBox>
         <TextBox x:Name="TxbxFilePath" IsEnabled="False" HorizontalAlignment="Left" Height="31" Margin="124,327,0,0" Text="" VerticalAlignment="Top" Width="457" FontSize="18">
         </TextBox>
-        <Button x:Name="BtnBrowseFile" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="18" Click="BtnBrowseFile_Click" >
+        <Button x:Name="BtnBrowseFile" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="18" Click="BtnBrowseFile_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Opened Folder_32px.png"  Height="29"/>
                 <TextBlock Text=" Обзор" Height="26"/>

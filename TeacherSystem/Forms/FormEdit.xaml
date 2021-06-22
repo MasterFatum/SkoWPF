@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Редактирование записи" Height="500" Width="615" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
-        <Button x:Name="BtnEditExit" HorizontalAlignment="Left" Margin="449,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditExit_Click">
+    <Grid Background="#FFEFFFE2">
+        <Button x:Name="BtnEditExit" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="449,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditExit_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnEditSave" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditSave_Click">
+        <Button x:Name="BtnEditSave" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditSave_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Save_32px.png" Height="29"/>
                 <TextBlock Text=" Сохранить" Height="26"/>
@@ -27,7 +27,7 @@
         <TextBox x:Name="TxbxEditCategory" IsEnabled="False" HorizontalAlignment="Left" Height="30" Margin="157,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357" TextAlignment="Center" FontSize="18" FontWeight="Bold">
         </TextBox>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="278,19,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button x:Name="BtnEditClear" HorizontalAlignment="Left" Margin="228,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClear_Click">
+        <Button x:Name="BtnEditClear" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="228,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClear_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Clear_32px.png" Height="29"/>
                 <TextBlock Text=" Очистить" Height="26"/>
@@ -38,7 +38,7 @@
         </TextBox>
         <TextBox x:Name="TxbxFilePath" IsEnabled="False" HorizontalAlignment="Left" Height="31" Margin="124,327,0,0" Text="" VerticalAlignment="Top" Width="457" FontSize="18">
         </TextBox>
-        <Button x:Name="BtnBrowseFile" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="18" Click="BtnBrowseFile_Click"  >
+        <Button x:Name="BtnBrowseFile" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="18" Click="BtnBrowseFile_Click"  >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/TeacherSystem;component/Source/Opened Folder_32px.png"  Height="29"/>
                 <TextBlock Text=" Обзор" Height="26"/>

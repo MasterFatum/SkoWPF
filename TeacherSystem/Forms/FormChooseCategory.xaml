@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Выберите категорию" Height="163.946" Width="321.733" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-    <Grid>
+    <Grid Background="#FFEFFFE2">
         <ComboBox x:Name="CbxSelectCategory" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" FontSize="18">
-            <ComboBoxItem IsSelected="True" Content="Индивидуальная образовательная траектория"/>
-            <ComboBoxItem Content="Курсы, семинары, вебинары"/>
-            <ComboBoxItem Content="Публикации, выступления"/>
-            <ComboBoxItem Content="Освоение и применение новых технологий"/>
-            <ComboBoxItem Content="Участие в конкурсах"/>
-            <ComboBoxItem Content="Обобщение и распространение педаг. опыта"/>
-            <ComboBoxItem Content="Размещение материалов на сайте"/>
-            <ComboBoxItem Content="Другое"/>
+            <ComboBoxItem Background="#FFE2EBFB" IsSelected="True" Content="Индивидуальная образовательная траектория"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Курсы, семинары, вебинары"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Публикации, выступления"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Освоение и применение новых технологий"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Участие в конкурсах"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Обобщение и распространение педаг. опыта"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Размещение материалов на сайте"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Другое"/>
         </ComboBox>
-        <Button x:Name="BtnMainAdd" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnMainAdd_Click">
+        <Button x:Name="BtnMainAdd" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnMainAdd_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Add Property_32px.png" Height="29"/>
                 <TextBlock Text=" Добавить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnChooseEducation" HorizontalAlignment="Left" Margin="159,75,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnChooseEducation_Click">
+        <Button x:Name="BtnChooseEducation" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="159,75,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnChooseEducation_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>

@@ -5,93 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserSystem"
         mc:Ignorable="d"
-        Title="Система управления качеством образования (Интерфейс преподавателя) Версия 2.5" Height="679.055" Width="1058" MinHeight="680" MinWidth="1058" WindowStartupLocation="CenterScreen" Closing="MainForm_Closing" Loaded="MainForm_Loaded">
-    <Grid Margin="0,0,0,12">
-        <DataGrid x:Name="DataGridMain" IsReadOnly="True" Margin="10,41,245,64" FontSize="16" SelectionChanged="DataGridMain_SelectionChanged" MouseDoubleClick="DataGridMain_MouseDoubleClick" LoadingRow="DataGridMain_LoadingRow"/>
-        <Button x:Name="BtnMainExit"  HorizontalAlignment="Right" Margin="0,0,10,1" VerticalAlignment="Bottom" Width="117" Height="44" FontSize="18" Click="BtnMainExit_Click">
+        Title="Система управления качеством образования (Интерфейс преподавателя) Версия 2.5" Height="652" Width="1074" MinHeight="680" MinWidth="1058" WindowStartupLocation="CenterScreen" Closing="MainForm_Closing" Loaded="MainForm_Loaded" ResizeMode="CanMinimize">
+    <Canvas Margin="0,0,2,0" Background="#FFEFFFE2">
+        <DataGrid x:Name="DataGridMain" Background="#FFE2EBFB" IsReadOnly="True" FontSize="16" SelectionChanged="DataGridMain_SelectionChanged" MouseDoubleClick="DataGridMain_MouseDoubleClick" LoadingRow="DataGridMain_LoadingRow" Canvas.Left="10" Canvas.Top="35" Height="521" Width="792"/>
+        <Button x:Name="BtnMainExit" Background="#FFE2EBFB"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="117" Height="44" FontSize="18" Click="BtnMainExit_Click" Canvas.Left="926" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Shutdown_32px.png" Height="29"/>
                 <TextBlock Text=" Выйти" Height="26"/>
             </StackPanel>
         </Button>
-        <Label x:Name="LblLastname" Content="Фамилия" HorizontalAlignment="Right" Margin="0,301,83,0" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14"/>
-        <Button x:Name="BtnMainAdd" HorizontalAlignment="Left" Margin="10,0,0,2" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainAdd_Click">
+        <Label x:Name="LblLastname" Content="Фамилия" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" Canvas.Left="896" Canvas.Top="307"/>
+        <Button x:Name="BtnMainAdd" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainAdd_Click" Canvas.Left="22" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Add Property_32px.png" Height="29"/>
                 <TextBlock Text=" Добавить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnMainEdit" HorizontalAlignment="Left" Margin="147,0,0,2" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainEdit_Click">
+        <Button x:Name="BtnMainEdit" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainEdit_Click" Canvas.Left="159" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Edit Property_32px.png" Height="29"/>
                 <TextBlock Text=" Изменить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnMainDelete" HorizontalAlignment="Left" Margin="284,0,0,2" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainDelete_Click">
+        <Button x:Name="BtnMainDelete" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="132" Height="44" FontSize="18" Click="BtnMainDelete_Click" Canvas.Left="296" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Delete Document_32px.png" Height="29"/>
                 <TextBlock Text=" Удалить" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnMainUpdate" HorizontalAlignment="Left" Margin="710,0,0,1" VerticalAlignment="Bottom" Width="199" Height="44" FontSize="18" Click="BtnMainUpdate_Click">
+        <Button x:Name="BtnMainUpdate" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="199" Height="44" FontSize="18" Click="BtnMainUpdate_Click" Canvas.Left="722" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Refresh_32px.png" Height="29"/>
                 <TextBlock Text=" Обновить таблицу" Height="26"/>
             </StackPanel>
         </Button>
-        <Label x:Name="LblLFirstname" Content="Имя" HorizontalAlignment="Right" Margin="0,363,99,0" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14"/>
-        <Label x:Name="LblMeddlename" Content="Отчество" Margin="0,425,86,0" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" HorizontalAlignment="Right"/>
-        <Label x:Name="LblUserId" Content="ID пользователя" HorizontalAlignment="Right" Margin="0,238,57,0" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14"/>
-        <Label x:Name="LblPosition" Content="Должность" HorizontalAlignment="Right" Margin="0,487,76,0" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14"/>
-        <GroupBox Header="Пользователь" HorizontalAlignment="Right" Height="346" Margin="0,220,8,0" VerticalAlignment="Top" Width="232"/>
-        <TextBox x:Name="TxbxUserId" IsReadOnly="True" HorizontalAlignment="Right" Height="25" Margin="0,272,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold">
-        </TextBox>
-        <TextBox x:Name="TxbxUserLastname" IsReadOnly="True" HorizontalAlignment="Right" Height="25" Margin="0,335,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold">
-        </TextBox>
-        <TextBox x:Name="TxbxUserFirstname" IsReadOnly="True" HorizontalAlignment="Right" Height="25" Margin="0,397,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold">
-        </TextBox>
-        <TextBox x:Name="TxbxUserMiddlename" IsReadOnly="True" HorizontalAlignment="Right" Height="25" Margin="0,459,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold">
-        </TextBox>
-        <TextBox x:Name="TxbxUserPosition" IsReadOnly="True" HorizontalAlignment="Right" Height="25" Margin="0,521,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold">
-        </TextBox>
-        <GroupBox Header="Фильтр записей" HorizontalAlignment="Right" Height="78" Margin="0,31,7,0" VerticalAlignment="Top" Width="233"/>
-        <ComboBox x:Name="CbxMainShowCategory" HorizontalAlignment="Right" Margin="0,58,79,0" VerticalAlignment="Top" Width="151" FontSize="18" SelectionChanged="CbxMainShowCategory_SelectionChanged" Height="35">
-            <ComboBoxItem Content="Индивидуальная образовательная траектория"/>
-            <ComboBoxItem Content="Курсы, семинары, вебинары"/>
-            <ComboBoxItem Content="Публикации, выступления"/>
-            <ComboBoxItem Content="Освоение и применение новых технологий"/>
-            <ComboBoxItem Content="Участие в конкурсах"/>
-            <ComboBoxItem Content="Обобщение и распространение педаг. опыта"/>
-            <ComboBoxItem Content="Размещение материалов на сайте"/>
-            <ComboBoxItem Content="Другое"/>
+        <Label x:Name="LblLFirstname" Content="Имя" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" Canvas.Left="912" Canvas.Top="369"/>
+        <Label x:Name="LblMeddlename" Content="Отчество" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" HorizontalAlignment="Right" Canvas.Left="896" Canvas.Top="431"/>
+        <Label x:Name="LblUserId" Content="ID пользователя" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" Canvas.Left="872" Canvas.Top="244"/>
+        <Label x:Name="LblPosition" Content="Должность" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.413,0.235" FontSize="14" Canvas.Left="896" Canvas.Top="493"/>
+
+        <TextBox x:Name="TxbxUserId" IsReadOnly="True" HorizontalAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold" Canvas.Left="825" Canvas.Top="273"/>
+        <TextBox x:Name="TxbxUserLastname" IsReadOnly="True" HorizontalAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold" Canvas.Left="825" Canvas.Top="336"/>
+        <TextBox x:Name="TxbxUserFirstname" IsReadOnly="True" HorizontalAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold" Canvas.Left="825" Canvas.Top="398"/>
+        <TextBox x:Name="TxbxUserMiddlename" IsReadOnly="True" HorizontalAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold" Canvas.Left="825" Canvas.Top="460"/>
+        <TextBox x:Name="TxbxUserPosition" IsReadOnly="True" HorizontalAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontSize="14" FontWeight="Bold" Canvas.Left="825" Canvas.Top="522"/>
+        <GroupBox Header="Фильтр записей" HorizontalAlignment="Right" Height="78" VerticalAlignment="Top" Width="247" Canvas.Left="807" Canvas.Top="35"/>
+        <ComboBox x:Name="CbxMainShowCategory" HorizontalAlignment="Right" VerticalAlignment="Top" Width="159" FontSize="18" SelectionChanged="CbxMainShowCategory_SelectionChanged" Height="35" Canvas.Left="822" Canvas.Top="64">
+            <ComboBoxItem Background="#FFE2EBFB" Content="Индивидуальная образовательная траектория"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Курсы, семинары, вебинары"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Публикации, выступления"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Освоение и применение новых технологий"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Участие в конкурсах"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Обобщение и распространение педаг. опыта"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Размещение материалов на сайте"/>
+            <ComboBoxItem Background="#FFE2EBFB" Content="Другое"/>
         </ComboBox>
-        <Button x:Name="BtnMainOtherUsersCourses" HorizontalAlignment="Left" Margin="421,0,0,2" VerticalAlignment="Bottom" Width="284" Height="43" FontSize="18" Click="BtnMainOtherUsersCourses_Click">
+        <Button x:Name="BtnMainOtherUsersCourses" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="284" Height="44" FontSize="18" Click="BtnMainOtherUsersCourses_Click" Canvas.Left="433" Canvas.Top="582">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Users_32px.png" Height="29"/>
                 <TextBlock Text=" Курсы других пользователей" Height="26"/>
             </StackPanel>
         </Button>
-        <Menu HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="63" FontSize="18" FontWeight="Bold">
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" FontSize="18" FontWeight="Bold" Canvas.Left="10" Canvas.Top="3">
             <MenuItem Header="Меню" FontSize="16" FontWeight="Normal">
-                <MenuItem Header="Учетная запись" Click="MenuItem_Click" FontWeight="Normal" ></MenuItem>
-                <MenuItem Header="Информация о программе" Click="MenuItem_Click_2" FontWeight="Normal"></MenuItem>
-                <MenuItem Header="Выйти" Click="MenuItem_Click_1" FontWeight="Normal"></MenuItem>
+                <MenuItem Background="#FFE2EBFB" Header="Учетная запись" Click="MenuItem_Click" FontWeight="Normal" ></MenuItem>
+                <MenuItem Background="#FFE2EBFB" Header="Информация о программе" Click="MenuItem_Click_2" FontWeight="Normal"></MenuItem>
+                <MenuItem Background="#FFE2EBFB" Header="Выйти" Click="MenuItem_Click_1" FontWeight="Normal"></MenuItem>
             </MenuItem>
         </Menu>
-        <Label Content="Общее количество баллов:" Margin="0,126,19,0" FontSize="16" Width="211" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" Height="34" Foreground="DarkGreen" Margin="0,168,78,0" Width="81" TextAlignment="Center" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right">
-        </TextBox>
-        <Label Content="Баллы отсутствуют" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308"/>
-        <Label Content="Баллы выставлены" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308"/>
-        <Button x:Name="BtnMainUpdate2" Margin="0,58,18,0" VerticalAlignment="Top" Width="56" Height="35" FontSize="18" Click="BtnMainUpdate_Click" HorizontalAlignment="Right">
+        <Label Content="Общее количество баллов:" FontSize="16" Width="211" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="129"/>
+        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" Height="34" Foreground="DarkGreen" Width="81" TextAlignment="Center" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="889" Canvas.Top="171"/>
+        <Label Content="Баллы отсутствуют" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="106" Canvas.Top="4"/>
+        <Label Content="Баллы выставлены" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="234" Canvas.Top="4"/>
+        <Button x:Name="BtnMainUpdate2" Background="#FFE2EBFB" VerticalAlignment="Top" Width="56" Height="35" FontSize="18" Click="BtnMainUpdate_Click" HorizontalAlignment="Right" Canvas.Left="986" Canvas.Top="64">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Source/Refresh_32px.png"  Height="29"/>
             </StackPanel>
         </Button>
-        <Label Content="Баллы выставлены, отредактированно" HorizontalAlignment="Left" Margin="369,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308"/>
-        <Button x:Name="BtnUsersIsOnline" Content="Пользователи онлайн" HorizontalAlignment="Right" Margin="0,6,10,0" VerticalAlignment="Top" Width="162" Click="BtnUsersIsOnline_Click"/>
-        <Ellipse Fill="Orange" HorizontalAlignment="Left" Height="15" Margin="98,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="15"/>
-        <Ellipse Fill="White" HorizontalAlignment="Left" Height="15" Margin="226,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="15"/>
-        <Ellipse Fill="Green" HorizontalAlignment="Left" Height="15" Margin="354,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="15"/>
-    </Grid>
+        <Label Content="Баллы выставлены, отредактированно" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="362" Canvas.Top="4"/>
+        <Button x:Name="BtnUsersIsOnline" Background="#FFE2EBFB" Content="Пользователи онлайн" HorizontalAlignment="Right" VerticalAlignment="Top" Width="162" Click="BtnUsersIsOnline_Click" Canvas.Left="892" Canvas.Top="10"/>
+        <Ellipse Fill="Orange" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="91" Canvas.Top="11"/>
+        <Ellipse Fill="White" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="219" Canvas.Top="10"/>
+        <Ellipse Fill="Green" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="347" Canvas.Top="10"/>
+        <ComboBox x:Name="CbxYear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="20" Canvas.Left="705" Canvas.Top="10"/>
+        <Label Content="Период" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Height="27" Canvas.Left="645" Canvas.Top="3"/>
+        <GroupBox Header="Управление" Height="78" Canvas.Left="10" Canvas.Top="561" Width="1044" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <GroupBox Header="Пользователь" Height="340" Canvas.Left="807" Canvas.Top="216" Width="247" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+    </Canvas>
 </Window>

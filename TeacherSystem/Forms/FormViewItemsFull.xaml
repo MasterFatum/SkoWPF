@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserSystem.FormsAddEducations"
         mc:Ignorable="d"
         Title="Просмотр курса" Height="487" Width="760" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="#FFEFFFE2">
         <Label Content="Название" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="TxbxTitle" HorizontalAlignment="Left" IsReadOnly="True" Height="31" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="499" FontSize="16" Text="Название курса">
         </TextBox>
@@ -21,7 +21,7 @@
         <TextBox x:Name="TxbxUser" HorizontalAlignment="Left" IsReadOnly="True"  Height="31" Margin="125,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="499" FontSize="16" Text="Пользователь" FontWeight="Bold" TextAlignment="Center">
         </TextBox>
         <Label Content="Пользователь" HorizontalAlignment="Left" Margin="9,18,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,7,11" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
+        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" Margin="0,0,7,11" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
@@ -38,7 +38,7 @@
         </TextBlock>
         <Label Content="Дата" HorizontalAlignment="Left" Margin="553,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold"/>
         <Label Content="Локальные материалы" HorizontalAlignment="Left" Margin="7,407,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold"/>
-        <Button Name="BtnLocalMatherials" HorizontalAlignment="Right" Margin="0,0,433,12" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnLocalMatherials_Click" >
+        <Button Name="BtnLocalMatherials" Background="#FFE2EBFB" HorizontalAlignment="Right" Margin="0,0,433,12" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnLocalMatherials_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Downloads Folder_32px.png" Height="29"/>
                 <TextBlock Text=" Скачать" Height="26"/>
