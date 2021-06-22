@@ -195,6 +195,29 @@ namespace Bll.Concrete
             }
         }
 
+        public void SetRatingCourseNull(int userId, int id, int rating, string evaluating)
+        {
+            try
+            {
+                Course course = skoContext.Courses.Where(u => u.UserId == userId).FirstOrDefault(c => c.Id == id);
+
+                if (course != null)
+                {
+                    course.Evaluation = null;
+                    course.Evaluating = null;
+
+                    skoContext.Courses.AddOrUpdate(course);
+                    skoContext.SaveChanges();
+
+                    MessageBox.Show("Баллы успешно удалены!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public string AllRating(int userId)
         {
             try

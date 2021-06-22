@@ -235,6 +235,9 @@
   <ItemGroup>
     <Resource Include="Cancel_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\eraser_32px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

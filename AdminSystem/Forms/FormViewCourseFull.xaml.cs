@@ -22,7 +22,7 @@ namespace AdminSystem.Forms
         public string FileName { get; set; }
 
 
-        public FormViewCourseFull(int userId, int id, string user, string category, string title, string description, string date, string hyperlink, string myUser, string fileName, int evaluation = 0)
+        public FormViewCourseFull(int userId, int id, string user, string category, string title, string description, string date, string hyperlink, string myUser, string fileName, int evaluation)
         {
             InitializeComponent();
 
@@ -82,6 +82,16 @@ namespace AdminSystem.Forms
             }
         }
 
+        private void BtnDeleteEvaluation_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Удалить баллы данного пользователя?", "Удаление баллов", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                courseRepository.SetRatingCourseNull(UserId, Id, Convert.ToByte(CbxRating.Text.Trim()), User);
+            }
+        }
+
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             if (MyUrlHyperlink != String.Empty)
@@ -94,7 +104,6 @@ namespace AdminSystem.Forms
                 MessageBox.Show("Материалы данного курса отсутсвуют!", "", MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
-
         }
 
         private void BtnLocalMatherials_Click(object sender, RoutedEventArgs e)
