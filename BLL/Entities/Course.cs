@@ -1,3 +1,5 @@
+using System;
+
 namespace BLL.Entities
 {
     public class Course
@@ -24,6 +26,8 @@ namespace BLL.Entities
         public string DateEdit { get; set; }
 
         public string FileName { get; set; }
+
+        public int Year { get; set; }
 
     }
 }

@@ -12,11 +12,14 @@ namespace AdminSystem.Forms
             InitializeComponent();
         }
 
-        UserRepository userRepository = new UserRepository();
+        UserRepository _userRepository = new UserRepository();
 
-        CourseRepository courseRepository = new CourseRepository();
+        CourseRepository _courseRepository = new CourseRepository();
 
-        OtherRepository otherRepository = new OtherRepository();
+        OtherRepository _otherRepository = new OtherRepository();
+
+        public String[] FullName { get; set; }
+        public int UserId { get; set; }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -28,24 +31,31 @@ namespace AdminSystem.Forms
             CbxUsersSummaryStatement.ItemsSource = new UserRepository().GetFioUsers();
         }
 
+        private void CbxYear_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            DataGridSummaryStatement.ItemsSource =
+                _courseRepository.GetSummaryStatementByFio(Convert.ToInt16(CbxYear.SelectedItem), FullName[0], FullName[1], FullName[2]);
+
+            _otherRepository.SettingDataGridSummaryStatement(DataGridSummaryStatement);
+
+            LblSummary.Content = _courseRepository.GetAllRating(UserId, Convert.ToInt16(CbxYear.SelectedItem));
+        }
+        
         private void CbxUsersSummaryStatement_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             try
             {
                 if (CbxUsersSummaryStatement.SelectedIndex != -1)
                 {
+                    CbxYear.IsEnabled = true;
+
                     String usernameFio = CbxUsersSummaryStatement.SelectedItem.ToString();
 
-                    String[] words = usernameFio.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    FullName = usernameFio.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    DataGridSummaryStatement.ItemsSource =
-                        courseRepository.GetSummaryStatementByFio(words[0], words[1], words[2]);
+                    UserId = _userRepository.GetUserIdByFio(FullName[0], FullName[1], FullName[2]);
 
-                    otherRepository.SettingDataGridSummaryStatement(DataGridSummaryStatement);
-
-                    int userId = userRepository.GetUserIdByFio(words[0], words[1], words[2]);
-
-                    LblSummary.Content = courseRepository.AllRating(userId);
+                    CbxYear.ItemsSource = _courseRepository.GetYears(UserId);
                 }
             }
             catch (Exception ex)

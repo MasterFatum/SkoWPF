@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,38 +13,9 @@ namespace TeacherSystem
 {
     public partial class MainWindow
     {
-        readonly CourseRepository courseRepository = new CourseRepository();
-        readonly OtherRepository otherRepository = new OtherRepository();
-        readonly FtpRepository ftpRepository = new FtpRepository();
-
-        public MainWindow(User user)
-        {
-            InitializeComponent();
-
-            DataGridMain.ItemsSource = courseRepository.GetCoursesByUserId(user.Id);
-
-            int yearNow = CbxYear.Items.Add(DateTime.Now.Year);
-            CbxYear.SelectedIndex = yearNow;
-
-            TxbxAllRating.Text = courseRepository.AllRating(user.Id);
-
-            CbxMainShowCategory.SelectedIndex = -1;
-
-            TxbxUserId.Text = user.Id.ToString();
-            TxbxUserLastname.Text = user.Lastname;
-            TxbxUserFirstname.Text = user.Firstname;
-            TxbxUserMiddlename.Text = user.Middlename;
-            TxbxUserPosition.Text = user.Position;
-            Email = user.Email;
-
-            UserIsOnline = new UserRepository().UserIsOnline(user.Id);
-
-        }
-
-        private void MainForm_Loaded(object sender, RoutedEventArgs e)
-        {
-            otherRepository.SettingDataGridUsers(DataGridMain);
-        }
+        readonly CourseRepository _courseRepository = new CourseRepository();
+        readonly OtherRepository _otherRepository = new OtherRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -63,6 +33,43 @@ namespace TeacherSystem
         public string FileName { get; set; }
         public bool UserIsOnline { get; set; }
 
+        public MainWindow(User user)
+        {
+            InitializeComponent();
+
+            CbxYear.ItemsSource = _courseRepository.GetYears(user.Id);
+
+            TxbxAllRating.Text = _courseRepository.GetAllRating(user.Id, Convert.ToInt16(CbxYear.SelectedItem));
+
+            CbxMainShowCategory.SelectedIndex = -1;
+
+            TxbxUserId.Text = user.Id.ToString();
+            TxbxUserLastname.Text = user.Lastname;
+            TxbxUserFirstname.Text = user.Firstname;
+            TxbxUserMiddlename.Text = user.Middlename;
+            TxbxUserPosition.Text = user.Position;
+            Email = user.Email;
+            
+            UserIsOnline = new UserRepository().UserIsOnline(user.Id);
+
+        }
+
+        private void CbxYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CbxMainShowCategory.SelectedIndex = -1;
+
+            DataGridMain.ItemsSource = _courseRepository.GetCoursesByUserId(Convert.ToInt32(TxbxUserId.Text), Convert.ToInt16(CbxYear.SelectedItem));
+            _otherRepository.SettingDataGridUsers(DataGridMain);
+
+            TxbxAllRating.Text = _courseRepository.GetRatingByYear(Convert.ToInt32(TxbxUserId.Text),
+                Convert.ToInt32(CbxYear.SelectedItem));
+        }
+
+        private void MainForm_Loaded(object sender, RoutedEventArgs e)
+        {
+            CbxYear.SelectedIndex = 0;
+        }
+
         private void BtnMainExit_Click(object sender, RoutedEventArgs e)
         {
             UserIsOnline = new UserRepository().UserIsOffline(Convert.ToInt32(TxbxUserId.Text));
@@ -76,10 +83,9 @@ namespace TeacherSystem
 
         private void BtnMainUpdate_Click(object sender, RoutedEventArgs e)
         {
-            IEnumerable<Course> allCourseses = courseRepository.GetCoursesByUserId(Convert.ToInt32(TxbxUserId.Text));
-            DataGridMain.ItemsSource = allCourseses;
+            DataGridMain.ItemsSource = _courseRepository.GetCoursesByUserId(Convert.ToInt32(TxbxUserId.Text), Convert.ToInt16(CbxYear.SelectedItem));
             CbxMainShowCategory.SelectedIndex = -1;
-            otherRepository.SettingDataGridUsers(DataGridMain);
+            _otherRepository.SettingDataGridUsers(DataGridMain);
         }
 
         private void DataGridMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -101,7 +107,6 @@ namespace TeacherSystem
                 Evaluation = items.Evaluation;
                 Hyperlink = items.Hyperlink;
                 FileName = items.FileName;
-
             }
             catch (Exception ex)
             {
@@ -113,11 +118,11 @@ namespace TeacherSystem
         {
             if (MessageBox.Show("Удалить данную запись?", "Удаление записи", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                courseRepository.DeleteCourse(Id, UserId);
+                _courseRepository.DeleteCourse(Id, UserId);
 
                 if (!String.IsNullOrEmpty(FileName))
                 {
-                    ftpRepository.DeleteFile(UserId.ToString(), FileName);
+                    _ftpRepository.DeleteFile(UserId.ToString(), FileName);
                 }
                 
                 BtnMainUpdate_Click(null, null);
@@ -133,7 +138,7 @@ namespace TeacherSystem
         {
             if (CbxMainShowCategory.SelectedIndex != -1)
             {
-                DataGridMain.ItemsSource = courseRepository.GetCoursesByCategory(Convert.ToInt32(TxbxUserId.Text), (((ComboBoxItem)CbxMainShowCategory.SelectedItem).Content.ToString()));
+                DataGridMain.ItemsSource = _courseRepository.GetCoursesByCategory(Convert.ToInt32(TxbxUserId.Text), (((ComboBoxItem)CbxMainShowCategory.SelectedItem).Content.ToString()), Convert.ToInt32(CbxYear.SelectedItem));
 
                 new OtherRepository().SettingDataGridUsers(DataGridMain);
             }
@@ -188,10 +193,13 @@ namespace TeacherSystem
 
         private void MainForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (e.Cancel == false)
+            if (TxbxUserId.Text != String.Empty)
             {
-                UserIsOnline = new UserRepository().UserIsOffline(Convert.ToInt32(TxbxUserId.Text));
-                Application.Current.Shutdown();
+                if (e.Cancel == false)
+                {
+                    UserIsOnline = new UserRepository().UserIsOffline(Convert.ToInt32(TxbxUserId.Text));
+                    Application.Current.Shutdown();
+                }
             }
         }
 
@@ -201,9 +209,9 @@ namespace TeacherSystem
             new FormInfo().ShowDialog();
         }
 
-        readonly SolidColorBrush orange = new SolidColorBrush(Colors.Orange);
-        readonly SolidColorBrush white = new SolidColorBrush(Colors.White);
-        readonly SolidColorBrush green = new SolidColorBrush(Colors.Green);
+        readonly SolidColorBrush _orange = new SolidColorBrush(Colors.Orange);
+        readonly SolidColorBrush _white = new SolidColorBrush(Colors.White);
+        readonly SolidColorBrush _green = new SolidColorBrush(Colors.Green);
 
         private void DataGridMain_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -211,31 +219,21 @@ namespace TeacherSystem
 
             if (course.Evaluation == null)
             {
-                e.Row.Background = orange;
+                e.Row.Background = _orange;
             }
             if (course.Evaluation != null && course.DateEdit == null)
             {
-                e.Row.Background = white;
+                e.Row.Background = _white;
             }
             if (course.Evaluation != null && course.DateEdit != null)
             {
-                e.Row.Background = green;
+                e.Row.Background = _green;
             }
         }
 
         private void BtnUsersIsOnline_Click(object sender, RoutedEventArgs e)
         {
             new FormUsersOnline().ShowDialog();
-        }
-
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

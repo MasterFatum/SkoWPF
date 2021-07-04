@@ -13,8 +13,8 @@ namespace UserSystem.FormsAddEducations
 {
     public partial class FormAdd
     {
-        readonly CourseRepository courseRepository = new CourseRepository();
-        readonly FtpRepository ftpRepository = new FtpRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public string SelectedCategory { get; set; }
         public int UserIdDirectory { get; set; }
@@ -64,20 +64,21 @@ namespace UserSystem.FormsAddEducations
                     Description = TxbxDescription.Text.Trim(),
                     Date = String.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}"),
                     Hyperlink = TxbxHyperlink.Text.Trim(),
-                    FileName = FileNameGuid
+                    FileName = FileNameGuid,
+                    Year = DateTime.Now.Year
                 };
 
                 if (TxbxFilePath.Text != String.Empty)
                 {
-                    if (!ftpRepository.ExistDirectory(UserIdDirectory.ToString()))
+                    if (!_ftpRepository.ExistDirectory(UserIdDirectory.ToString()))
                     {
-                        ftpRepository.CreateDirectory(UserIdDirectory.ToString());
+                        _ftpRepository.CreateDirectory(UserIdDirectory.ToString());
                     }
 
-                    Task task = new Task(() => ftpRepository.UploadFile("/" + UserIdDirectory + "/", FilePath, FileNameGuid));
+                    Task task = new Task(() => _ftpRepository.UploadFile("/" + UserIdDirectory + "/", FilePath, FileNameGuid));
                     task.Start();
                 }
-                courseRepository.AddCourse(course, TxbxTitle, TxbxDescription, TxbxHyperlink, TxbxFilePath);
+                _courseRepository.AddCourse(course, TxbxTitle, TxbxDescription, TxbxHyperlink, TxbxFilePath);
             }
             else
             {

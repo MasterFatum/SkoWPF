@@ -6,39 +6,36 @@
         xmlns:local="clr-namespace:UserSystem.FormsAddEducations"
         mc:Ignorable="d"
         Title="Просмотр курса" Height="487" Width="760" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FFEFFFE2">
+    <Canvas Background="#FFEFFFE2" Margin="10,0,10,10">
         <Label Content="Название" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="TxbxTitle" HorizontalAlignment="Left" IsReadOnly="True" Height="31" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="499" FontSize="16" Text="Название курса">
         </TextBox>
         <Label Content="Описание" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="TxbxDescription" IsReadOnly="True" HorizontalAlignment="Left" Height="228" Margin="125,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="612" FontSize="16" Text="Описание курса" VerticalScrollBarVisibility="Auto">
-        </TextBox>
+        <TextBox x:Name="TxbxDescription" IsReadOnly="True" HorizontalAlignment="Left" Height="228" TextWrapping="Wrap" VerticalAlignment="Top" Width="599" FontSize="16" Text="Описание курса" VerticalScrollBarVisibility="Auto" Canvas.Left="125" Canvas.Top="126"/>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="TxbxCategory" HorizontalAlignment="Left" IsReadOnly="True" Height="31" Margin="125,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="499" FontSize="16" FontWeight="Bold" TextAlignment="Center" Text="Категория">
         </TextBox>
-        <TextBox x:Name="TxbxEvaluation" HorizontalAlignment="Left" IsReadOnly="True" Height="75" Margin="634,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" Text="0" TextAlignment="Center" FontSize="48" FontWeight="Bold" Foreground="#FF177C25">
-        </TextBox>
+        <TextBox x:Name="TxbxEvaluation" HorizontalAlignment="Left" IsReadOnly="True" Height="77" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Text="0" TextAlignment="Center" FontSize="48" FontWeight="Bold" Foreground="#FF177C25" Canvas.Left="634" Canvas.Top="44"/>
         <TextBox x:Name="TxbxUser" HorizontalAlignment="Left" IsReadOnly="True"  Height="31" Margin="125,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="499" FontSize="16" Text="Пользователь" FontWeight="Bold" TextAlignment="Center">
         </TextBox>
         <Label Content="Пользователь" HorizontalAlignment="Left" Margin="9,18,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" Margin="0,0,7,11" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
+        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click" Canvas.Left="592" Canvas.Top="403">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <Label Content="Баллы" HorizontalAlignment="Left" Margin="654,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBox x:Name="TxbxDate" HorizontalAlignment="Left" IsEnabled ="False"  Height="35" Margin="600,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontSize="16" TextAlignment="Center">
-        </TextBox>
-        <Label Content="Web материалы" HorizontalAlignment="Left" Margin="5,367,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold"/>
-        <TextBlock Name="TextBlockHyperlink" HorizontalAlignment="Left" Margin="134,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold">
+        <Label Content="Баллы" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic" Canvas.Left="643" Canvas.Top="10"/>
+        <TextBox x:Name="TxbxDate" HorizontalAlignment="Left" IsEnabled ="False"  Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="16" TextAlignment="Center" Canvas.Left="592" Canvas.Top="362"/>
+        <Label Content="Web материалы" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold" Canvas.Left="7" Canvas.Top="362"/>
+        <TextBlock Name="TextBlockHyperlink" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Canvas.Left="158" Canvas.Top="367">
             <Hyperlink Name="Hyperlink" NavigateUri=""  RequestNavigate="Hyperlink_RequestNavigate">
                 Материалы данного курса
             </Hyperlink>
         </TextBlock>
-        <Label Content="Дата" HorizontalAlignment="Left" Margin="553,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Локальные материалы" HorizontalAlignment="Left" Margin="7,407,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold"/>
-        <Button Name="BtnLocalMatherials" Background="#FFE2EBFB" HorizontalAlignment="Right" Margin="0,0,433,12" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnLocalMatherials_Click" >
+        <Label Content="Дата" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold" Canvas.Left="544" Canvas.Top="362"/>
+        <Label Content="Локальные материалы" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="14" FontWeight="Bold" Canvas.Left="7" Canvas.Top="406"/>
+        <Button Name="BtnLocalMatherials" Background="#FFE2EBFB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="BtnLocalMatherials_Click" Canvas.Left="181" Canvas.Top="403" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Downloads Folder_32px.png" Height="29"/>
                 <TextBlock Text=" Скачать" Height="26"/>
@@ -46,5 +43,5 @@
         </Button>
 
 
-    </Grid>
+    </Canvas>
 </Window>

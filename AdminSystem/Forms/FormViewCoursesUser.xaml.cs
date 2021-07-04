@@ -24,13 +24,16 @@ namespace AdminSystem.Forms
         public string Date { get; set; }
         public string Hyperlink { get; set; }
         public string FilePath { get; set; }
+        public int Year { get; set; }
 
-        CourseRepository courseRepository = new CourseRepository();
-
-
+        CourseRepository _courseRepository = new CourseRepository();
+        OtherRepository _otherRepository = new OtherRepository();
+        
         public FormViewCoursesUser(int id, string lastname, string firstname, string middlename, string user)
         {
             InitializeComponent();
+
+            CbxYear.ItemsSource = _courseRepository.GetYears(id);
 
             User = user;
 
@@ -39,42 +42,32 @@ namespace AdminSystem.Forms
             LblUserId.Content = Id;
 
             Lastname = lastname;
-
-            LblUsername.Content = String.Format($"{lastname} {firstname} {middlename}");
-
-            DataGridUserCourses.ItemsSource = courseRepository.GetCoursesByUserId(Id);
-
-            string rating = courseRepository.AllRating(Id);
-
-            if (rating == String.Empty)
-            {
-                TxbxAllRating.Text = "Баллы отсутствуют";
-                TxbxAllRating.FontSize = 12;
-            }
-            else
-            {
-                TxbxAllRating.Text = rating;
-            }
-
             
+            LblUsername.Content = String.Format($"{lastname} {firstname} {middlename}");
+        }
+
+        private void CbxYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGridUserCourses.ItemsSource = _courseRepository.GetCoursesByUserId(Convert.ToInt32(LblUserId.Content), Convert.ToInt16(CbxYear.SelectedItem));
+            _otherRepository.SettingDataGridUsers(DataGridUserCourses);
+
+            TxbxAllRating.Text = _courseRepository.GetRatingByYear(Convert.ToInt32(LblUserId.Content),
+                Convert.ToInt32(CbxYear.SelectedItem));
+
+            if (TxbxAllRating.Text == String.Empty)
+            {
+                TxbxAllRating.Text = "-";
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            new OtherRepository().SettingDataGridUsers(DataGridUserCourses);
+            CbxYear.SelectedIndex = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void BtnShowOtherUsersCourses_Click(object sender, RoutedEventArgs e)
-        {
-            DataGridUserCourses.ItemsSource =
-                courseRepository.GetCoursesByCategory(Id, ((ComboBoxItem)CbxUserCategory.SelectedItem).Content.ToString());
-
-            new OtherRepository().SettingDataGridUsers(DataGridUserCourses);
         }
 
         private void DataGridUserCourses_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
@@ -109,15 +102,13 @@ namespace AdminSystem.Forms
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            CbxUserCategory.SelectedIndex = 0;
-            DataGridUserCourses.ItemsSource = courseRepository.GetCoursesByUserId(Convert.ToInt32(LblUserId.Content)).ToList();
+            DataGridUserCourses.ItemsSource = _courseRepository.GetCoursesByUserId(Convert.ToInt32(LblUserId.Content), Convert.ToInt16(CbxYear.SelectedItem)).ToList();
 
-            string rating = courseRepository.AllRating(Convert.ToInt32(LblUserId.Content));
+            string rating = _courseRepository.GetAllRating(Convert.ToInt32(LblUserId.Content), Convert.ToInt16(CbxYear.SelectedItem));
 
             if (rating == String.Empty)
             {
-                TxbxAllRating.Text = "Баллы отсутствуют";
-                TxbxAllRating.FontSize = 12;
+                TxbxAllRating.Text = "-";
             }
             else
             {

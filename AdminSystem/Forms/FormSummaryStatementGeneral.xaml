@@ -6,20 +6,22 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Общая сводная ведомость" Height="463.713" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized">
-    <Grid Background="#FFEFFFE2">
-        <Button x:Name="BtnClose" Background="#FFE2EBFB" Margin="0,0,21,10" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click" HorizontalAlignment="Right" Width="134" Height="35" VerticalAlignment="Bottom">
+    <Canvas Background="#FFEFFFE2" Margin="10,0,10,10">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click" HorizontalAlignment="Right" Width="134" Height="35" VerticalAlignment="Bottom" Canvas.Left="628" Canvas.Top="378">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/AdminSystem;component/Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <DataGrid x:Name="DataGridTable" Background="#FFE2EBFB" Margin="10,10,21,60" IsReadOnly="True" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="BtnExportToExcel" Background="#FFE2EBFB" Margin="11,0,0,10" RenderTransformOrigin="0.9,0.199" FontSize="18" HorizontalAlignment="Left" Width="176" Height="35" VerticalAlignment="Bottom" Click="BtnExportToExcel_Click">
+        <DataGrid x:Name="DataGridTable" Background="#FFE2EBFB" IsReadOnly="True" FontSize="16" FontWeight="Bold" FontStyle="Italic" Height="332" Canvas.Left="10" Canvas.Top="41" Width="752" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="BtnExportToExcel" Background="#FFE2EBFB" RenderTransformOrigin="0.9,0.199" FontSize="18" HorizontalAlignment="Left" Width="176" Height="35" VerticalAlignment="Bottom" Click="BtnExportToExcel_Click" Canvas.Left="10" Canvas.Top="378">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Microsoft Excel_32px.png" Height="29"/>
                 <TextBlock Text=" Экспорт в Excel" Height="26"/>
             </StackPanel>
         </Button>
+        <ComboBox x:Name="CbxYear" Canvas.Left="697" Canvas.Top="10" Width="65" FontSize="14" SelectionChanged="CbxYear_SelectionChanged" VerticalAlignment="Top"/>
+        <Label Content="Период" Canvas.Left="625" Canvas.Top="4" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 
-    </Grid>
+    </Canvas>
 </Window>

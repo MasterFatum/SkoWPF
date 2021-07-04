@@ -12,8 +12,8 @@ namespace AdminSystem.Forms
 
     public partial class FormViewCourseFull
     {
-        CourseRepository courseRepository = new CourseRepository();
-        FtpRepository ftpRepository = new FtpRepository();
+        CourseRepository _courseRepository = new CourseRepository();
+        FtpRepository _ftpRepository = new FtpRepository();
 
         public string User { get; set; }
         public int Id { get; set; }
@@ -78,7 +78,7 @@ namespace AdminSystem.Forms
                 CbxRating.IsEnabled = false;
                 TxBlSetRating.Text = " Назначить баллы";
 
-                courseRepository.SetRatingCourse(UserId, Id, Convert.ToByte(CbxRating.Text.Trim()), User);
+                _courseRepository.SetRatingCourse(UserId, Id, Convert.ToByte(CbxRating.Text.Trim()), User);
             }
         }
 
@@ -88,7 +88,7 @@ namespace AdminSystem.Forms
 
             if (result == MessageBoxResult.Yes)
             {
-                courseRepository.SetRatingCourseNull(UserId, Id, Convert.ToByte(CbxRating.Text.Trim()), User);
+                _courseRepository.SetRatingCourseNull(UserId, Id);
             }
         }
 
@@ -108,15 +108,17 @@ namespace AdminSystem.Forms
 
         private void BtnLocalMatherials_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = @"Zip files (*.zip)|*.zip";
-            saveFile.FileName = String.Format($"{TxbxUser.Text} {TxbxTitle.Text}");
-            
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Filter = @"Zip files (*.zip)|*.zip", 
+                FileName = String.Format($"{TxbxUser.Text} {TxbxTitle.Text}")
+            };
+
 
             if (saveFile.ShowDialog() == true)
             {
                 string fileLocalPath = saveFile.FileName;
-                Task task = new Task(() => ftpRepository.DownloadFile(UserId.ToString(), fileLocalPath, FileName));
+                Task task = new Task(() => _ftpRepository.DownloadFile(UserId.ToString(), fileLocalPath, FileName));
                 task.Start();
             }
         }

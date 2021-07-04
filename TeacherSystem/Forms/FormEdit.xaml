@@ -5,39 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Редактирование записи" Height="500" Width="615" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid Background="#FFEFFFE2">
-        <Button x:Name="BtnEditExit" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="449,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditExit_Click">
+    <Canvas Background="#FFEFFFE2" Margin="10,0,10,10">
+        <Button x:Name="BtnEditExit" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditExit_Click" Canvas.Left="447" Canvas.Top="416">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BtnEditSave" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditSave_Click">
+        <Button x:Name="BtnEditSave" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnEditSave_Click" Canvas.Left="10" Canvas.Top="416">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Save_32px.png" Height="29"/>
                 <TextBlock Text=" Сохранить" Height="26"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="TxbxEditTitle" HorizontalAlignment="Left" Height="30" Margin="104,90,0,0" VerticalAlignment="Top" Width="477" TextAlignment="Center" FontSize="18">
-        </TextBox>
-        <Label Content="Название" HorizontalAlignment="Left" Margin="7,90,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="TxbxEditDescription" HorizontalAlignment="Left" Height="183" Margin="104,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="477" FontSize="16">
-        </TextBox>
-        <Label Content="Описание" HorizontalAlignment="Left" Margin="7,125,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="TxbxEditCategory" IsEnabled="False" HorizontalAlignment="Left" Height="30" Margin="157,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357" TextAlignment="Center" FontSize="18" FontWeight="Bold">
-        </TextBox>
-        <Label Content="Категория" HorizontalAlignment="Left" Margin="278,19,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button x:Name="BtnEditClear" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="228,420,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClear_Click">
+        <TextBox x:Name="TxbxEditTitle" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="457" TextAlignment="Center" FontSize="18" Canvas.Left="124" Canvas.Top="90"/>
+        <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="30" Canvas.Top="86"/>
+        <TextBox x:Name="TxbxEditDescription" HorizontalAlignment="Left" Height="198" TextWrapping="Wrap" VerticalAlignment="Top" Width="455" FontSize="16" Canvas.Left="124" Canvas.Top="124"/>
+        <Label Content="Описание" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="27" Canvas.Top="124"/>
+        <TextBox x:Name="TxbxEditCategory" IsEnabled="False" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" TextAlignment="Center" FontSize="18" FontWeight="Bold" Canvas.Left="183" Canvas.Top="53"/>
+        <Label Content="Категория" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="305" Canvas.Top="19"/>
+        <Button x:Name="BtnEditClear" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnClear_Click" Canvas.Left="235" Canvas.Top="416">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Clear_32px.png" Height="29"/>
                 <TextBlock Text=" Очистить" Height="26"/>
             </StackPanel>
         </Button>
-        <Label Content="Web ссылка" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="18"/>
-        <TextBox x:Name="TxbxHyperlink" HorizontalAlignment="Left" Height="30" Margin="124,374,0,0" VerticalAlignment="Top" Width="457" TextAlignment="Center" FontSize="18">
-        </TextBox>
-        <TextBox x:Name="TxbxFilePath" IsEnabled="False" HorizontalAlignment="Left" Height="31" Margin="124,327,0,0" Text="" VerticalAlignment="Top" Width="457" FontSize="18">
-        </TextBox>
+        <Label Content="Web ссылка" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.216,0.009" FontSize="18" Canvas.Left="10" Canvas.Top="370" Width="109"/>
+        <TextBox x:Name="TxbxHyperlink" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="455" TextAlignment="Center" FontSize="18" Canvas.Left="124" Canvas.Top="374"/>
+        <TextBox x:Name="TxbxFilePath" IsEnabled="False" HorizontalAlignment="Left" Height="31" Text="" VerticalAlignment="Top" Width="455" FontSize="18" Canvas.Left="124" Canvas.Top="327"/>
         <Button x:Name="BtnBrowseFile" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="18" Click="BtnBrowseFile_Click"  >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/TeacherSystem;component/Source/Opened Folder_32px.png"  Height="29"/>
@@ -45,5 +40,5 @@
             </StackPanel>
         </Button>
 
-    </Grid>
+    </Canvas>
 </Window>

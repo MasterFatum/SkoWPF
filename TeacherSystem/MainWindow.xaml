@@ -83,12 +83,12 @@
             </StackPanel>
         </Button>
         <Label Content="Баллы выставлены, отредактированно" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="362" Canvas.Top="4"/>
-        <Button x:Name="BtnUsersIsOnline" Background="#FFE2EBFB" Content="Пользователи онлайн" HorizontalAlignment="Right" VerticalAlignment="Top" Width="162" Click="BtnUsersIsOnline_Click" Canvas.Left="892" Canvas.Top="10"/>
+        <Button x:Name="BtnUsersIsOnline" Background="#FFE2EBFB" Content="Пользователи онлайн" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128" Click="BtnUsersIsOnline_Click" Canvas.Left="926" Canvas.Top="10"/>
         <Ellipse Fill="Orange" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="91" Canvas.Top="11"/>
         <Ellipse Fill="White" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="219" Canvas.Top="10"/>
         <Ellipse Fill="Green" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="15" Canvas.Left="347" Canvas.Top="10"/>
-        <ComboBox x:Name="CbxYear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="20" Canvas.Left="705" Canvas.Top="10"/>
-        <Label Content="Период" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Height="27" Canvas.Left="645" Canvas.Top="3"/>
+        <ComboBox x:Name="CbxYear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Height="20" Canvas.Left="735" Canvas.Top="10" SelectionChanged="CbxYear_SelectionChanged"/>
+        <Label Content="Период" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Height="27" Canvas.Left="670" Canvas.Top="5"/>
         <GroupBox Header="Управление" Height="78" Canvas.Left="10" Canvas.Top="561" Width="1044" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         <GroupBox Header="Пользователь" Height="340" Canvas.Left="807" Canvas.Top="216" Width="247" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Canvas>

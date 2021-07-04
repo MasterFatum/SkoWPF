@@ -6,51 +6,33 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Курсы пользователя" Height="563.789" Width="1046.733" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Background="#FFEFFFE2">
-        <DataGrid x:Name="DataGridUserCourses" Background="#FFE2EBFB" IsReadOnly="True" Margin="10,103,18,58" FontSize="16" MouseDoubleClick="DataGridUserCourses_MouseDoubleClick_1" LoadingRow="DataGridUserCourses_LoadingRow"/>
-        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" Margin="0,0,18,8" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click">
+    <Canvas Background="#FFEFFFE2" Margin="10,0,10,10">
+        <DataGrid x:Name="DataGridUserCourses" Background="#FFE2EBFB" IsReadOnly="True" FontSize="16" MouseDoubleClick="DataGridUserCourses_MouseDoubleClick_1" LoadingRow="DataGridUserCourses_LoadingRow" Canvas.Left="10" Canvas.Top="54" RenderTransformOrigin="0.497,0.535" Height="419" Width="999"/>
+        <Button HorizontalAlignment="Right" Background="#FFE2EBFB" VerticalAlignment="Bottom" Width="132" Height="35" FontSize="18" Click="Button_Click" Canvas.Left="877" Canvas.Top="478">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <ComboBox x:Name="CbxUserCategory" HorizontalAlignment="Left" Margin="209,58,0,0" VerticalAlignment="Top" Width="270" FontSize="18">
-            <ComboBoxItem IsSelected="True" Content="Индивидуальная образовательная траектория"/>
-            <ComboBoxItem Content="Курсы, семинары, вебинары"/>
-            <ComboBoxItem Content="Публикации, выступления"/>
-            <ComboBoxItem Content="Освоение и применение новых технологий"/>
-            <ComboBoxItem Content="Участие в конкурсах"/>
-            <ComboBoxItem Content="Обобщение и распространение педаг. опыта"/>
-            <ComboBoxItem Content="Размещение материалов на сайте"/>
-            <ComboBoxItem Content="Справки"/>
-            <ComboBoxItem Content="Другое"/>
-        </ComboBox>
-        <Label Content="Пользователь" HorizontalAlignment="Left" Margin="72,17,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Категория" HorizontalAlignment="Left" Margin="72,58,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="BtnShowOtherUsersCourses" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="494,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnShowOtherUsersCourses_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="../Source/Search Property_32px.png" Height="29"/>
-                <TextBlock Text=" Показать" Height="26"/>
-            </StackPanel>
-        </Button>
-        <Label Name="LblUsername" Content="Имя пользователя" HorizontalAlignment="Left" Margin="209,17,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button Name="BtnUpdate" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="631,56,0,0" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnUpdate_Click">
+        <Label Content="Пользователь:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Canvas.Left="51" Canvas.Top="14"/>
+        <Label Name="LblUsername" Content="Имя пользователя" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="166" Canvas.Top="14"/>
+        <Button Name="BtnUpdate" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Height="35" FontSize="18" Click="BtnUpdate_Click" Canvas.Left="740" Canvas.Top="478">
             <StackPanel Orientation="Horizontal">
                 <Image Source="../Source/Refresh_32px.png" Height="29"/>
                 <TextBlock Text=" Обновить" Height="26"/>
             </StackPanel>
         </Button>
         <Label x:Name="LblUserId" Content="ID" HorizontalAlignment="Left" Margin="994,-22,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" HorizontalAlignment="Right" Height="34" Margin="0,56,22,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" TextAlignment="Center" FontSize="18" FontWeight="Bold">
-        </TextBox>
-        <Label Content="Количество баллов" HorizontalAlignment="Right" Margin="0,21,18,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Баллы отсутствуют" HorizontalAlignment="Left" Margin="40,0,0,15" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308"/>
-        <Label Content="Баллы выставлены" HorizontalAlignment="Left" Margin="170,0,0,15" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308"/>
-        <Image Source="../Source/Users_32px.png"  HorizontalAlignment="Left" Height="35" Margin="18,16,0,0" VerticalAlignment="Top" Width="36"/>
-        <Image Source="/AdminSystem;component/Category_32px.png" HorizontalAlignment="Left" Height="35" Margin="18,58,0,0" VerticalAlignment="Top" Width="36"/>
-        <Label Content="Баллы выставлены, отредактированно" HorizontalAlignment="Left" Margin="299,0,0,15" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308"/>
-        <Ellipse Fill="Orange" HorizontalAlignment="Left" Height="15" Margin="25,0,0,20" Stroke="Black" VerticalAlignment="Bottom" Width="15"/>
-        <Ellipse Fill="White" HorizontalAlignment="Left" Height="15" Margin="155,0,0,20" Stroke="Black" VerticalAlignment="Bottom" Width="15"/>
-        <Ellipse Fill="Green" HorizontalAlignment="Left" Height="15" Margin="284,0,0,20" Stroke="Black" VerticalAlignment="Bottom" Width="15"/>
-    </Grid>
+        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" HorizontalAlignment="Right" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" TextAlignment="Center" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.493,0.486" Canvas.Left="771" Canvas.Top="14"/>
+        <Label Content="Количество баллов" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Canvas.Left="614" Canvas.Top="14"/>
+        <Label Content="Баллы отсутствуют" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308" Canvas.Left="32" Canvas.Top="481"/>
+        <Label Content="Баллы выставлены" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308" Canvas.Left="170" Canvas.Top="481"/>
+        <Image Source="../Source/Users_32px.png"  HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="36" Canvas.Left="10" Canvas.Top="10"/>
+        <Label Content="Баллы выставлены, отредактированно" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.263,0.308" Canvas.Left="308" Canvas.Top="481"/>
+        <Ellipse Fill="Orange" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Bottom" Width="15" Canvas.Left="12" Canvas.Top="487"/>
+        <Ellipse Fill="White" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Bottom" Width="15" Canvas.Left="150" Canvas.Top="487" RenderTransformOrigin="0.533,0.533"/>
+        <Ellipse Fill="Green" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Bottom" Width="15" Canvas.Left="288" Canvas.Top="487"/>
+        <ComboBox x:Name="CbxYear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="35" SelectionChanged="CbxYear_SelectionChanged" Canvas.Left="939" Canvas.Top="14" FontSize="18"/>
+        <Label Content="Период" Canvas.Left="867" Canvas.Top="14" FontSize="16"/>
+    </Canvas>
 </Window>

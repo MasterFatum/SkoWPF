@@ -4,26 +4,25 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using BLL.Abstract;
 using BLL.Entities;
 
 namespace BLL.Concrete
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository
     {
-        readonly SkoContext skoContext = new SkoContext();
+        readonly SkoContext _skoContext = new SkoContext();
 
         public void AddUser(User user)
         {
             try
             {
-                User userExists = skoContext.Users.FirstOrDefault(em => em.Email == user.Email);
+                User userExists = _skoContext.Users.FirstOrDefault(em => em.Email == user.Email);
 
                 if (userExists == null)
                 {
-                    skoContext.Users.Add(user);
+                    _skoContext.Users.Add(user);
 
-                    skoContext.SaveChanges();
+                    _skoContext.SaveChanges();
 
                     MessageBox.Show($"Пользователь {user.Email} успешно зарегистрирован в системе!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -43,12 +42,12 @@ namespace BLL.Concrete
         {
             try
             {
-                User user = skoContext.Users.Find(id);
+                User user = _skoContext.Users.Find(id);
 
                 if (user != null)
                 {
-                    skoContext.Users.Remove(user);
-                    skoContext.SaveChanges();
+                    _skoContext.Users.Remove(user);
+                    _skoContext.SaveChanges();
 
                     MessageBox.Show("Пользователь успешно удалён!", "", MessageBoxButton.OK,
                         MessageBoxImage.Information);
@@ -65,7 +64,7 @@ namespace BLL.Concrete
         {
             try
             {
-                var user = skoContext.Users.Find(id);
+                var user = _skoContext.Users.Find(id);
 
                 if (user != null)
                 {
@@ -75,9 +74,9 @@ namespace BLL.Concrete
                     user.Position = position;
                     user.Email = email;
 
-                    skoContext.Users.AddOrUpdate(user);
+                    _skoContext.Users.AddOrUpdate(user);
 
-                    skoContext.SaveChanges();
+                    _skoContext.SaveChanges();
 
                     MessageBox.Show("Ваш аккаунт успешно отредактирован!", "Редактирование пользователя", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -92,7 +91,7 @@ namespace BLL.Concrete
         {
             try
             {
-                var user = skoContext.Users.Find(id);
+                var user = _skoContext.Users.Find(id);
 
                 if (user != null)
                 {
@@ -105,9 +104,9 @@ namespace BLL.Concrete
                     user.Password = password;
                     user.Privilege = privilege;
 
-                    skoContext.Users.AddOrUpdate(user);
+                    _skoContext.Users.AddOrUpdate(user);
 
-                    skoContext.SaveChanges();
+                    _skoContext.SaveChanges();
 
                     MessageBox.Show("Аккаунт успешно отредактирован!", "Редактирование пользователя", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -122,7 +121,7 @@ namespace BLL.Concrete
         {
             try
             {
-                IEnumerable<User> users = skoContext.Users.ToList();
+                IEnumerable<User> users = _skoContext.Users.ToList();
 
                 return users;
             }
@@ -134,19 +133,18 @@ namespace BLL.Concrete
             return null;
         }
 
-        public IEnumerable<UserEvaluationSummary> GetAllUsersName()
+        public IEnumerable<UserEvaluationSummary> GetAllUsersNameWithEvaluation(int year)
         {
             try
             {
-                IEnumerable<UserEvaluationSummary> users = skoContext.Users
-                    .Select(x => new UserEvaluationSummary
-                    {
-                        LastName = x.Lastname,
-                        FirstName = x.Firstname,
-                        MidName = x.Middlename,
-                        EvaluationSum = x.Courses.Sum(y => y.Evaluation)
-                    })
-                    .ToList();
+                List<UserEvaluationSummary> users = _skoContext.Users.Select(x => new UserEvaluationSummary
+                {
+                    LastName = x.Lastname,
+                    FirstName = x.Firstname,
+                    MiddleName = x.Middlename,
+                    EvaluationSum = x.Courses.Where(y => y.Year == year).Sum(e => e.Evaluation)
+
+                }).ToList();
 
                 return users;
             }
@@ -162,7 +160,7 @@ namespace BLL.Concrete
         {
             try
             {
-                List<User> users = skoContext.Users.OrderBy(l => l.Lastname).ToList();
+                List<User> users = _skoContext.Users.OrderBy(l => l.Lastname).ToList();
 
                 List<String> userFio = new List<string>();
 
@@ -187,7 +185,7 @@ namespace BLL.Concrete
             {
                 User user = null;
 
-                var findUser = skoContext.Users.FirstOrDefault(u => u.Email == username);
+                var findUser = _skoContext.Users.FirstOrDefault(u => u.Email == username);
 
                 if (findUser != null)
                 {
@@ -218,7 +216,7 @@ namespace BLL.Concrete
             {
                 User user = null;
 
-                var findUser = skoContext.Users.Where(p => p.Privilege == "Admin").FirstOrDefault(u => u.Email == username);
+                var findUser = _skoContext.Users.Where(p => p.Privilege == "Admin").FirstOrDefault(u => u.Email == username);
 
                 if (findUser != null)
                 {
@@ -245,14 +243,14 @@ namespace BLL.Concrete
 
         public void SokoDispose()
         {
-            skoContext.Dispose();
+            _skoContext.Dispose();
         }
 
         public string GetAllUsersCount()
         {
             try
             {
-                return skoContext.Users.Count().ToString();
+                return _skoContext.Users.Count().ToString();
             }
             catch (Exception ex)
             {
@@ -267,7 +265,7 @@ namespace BLL.Concrete
 
             try
             { 
-                userId = skoContext.Users.Where(l => l.Lastname == lastname).Where(f => f.Firstname == firstname)
+                userId = _skoContext.Users.Where(l => l.Lastname == lastname).Where(f => f.Firstname == firstname)
                     .FirstOrDefault(m => m.Middlename == middlename);
             }
             catch (Exception ex)
@@ -286,7 +284,7 @@ namespace BLL.Concrete
         {
             try
             {
-                var user = skoContext.Users.Find(id);
+                var user = _skoContext.Users.Find(id);
 
                 if (user != null)
                 {
@@ -295,9 +293,9 @@ namespace BLL.Concrete
 
                     user.IsOnline = true;
 
-                    skoContext.Users.AddOrUpdate(user);
+                    _skoContext.Users.AddOrUpdate(user);
 
-                    skoContext.SaveChanges();
+                    _skoContext.SaveChanges();
 
                     return true;
                 }
@@ -314,15 +312,15 @@ namespace BLL.Concrete
         {
             try
             {
-                var user = skoContext.Users.Find(id);
+                var user = _skoContext.Users.Find(id);
 
                 if (user != null)
                 {
                     user.IsOnline = false;
 
-                    skoContext.Users.AddOrUpdate(user);
+                    _skoContext.Users.AddOrUpdate(user);
 
-                    skoContext.SaveChanges();
+                    _skoContext.SaveChanges();
 
                     return false;
                 }
@@ -339,7 +337,7 @@ namespace BLL.Concrete
         {
             try
             {
-                IEnumerable<UsersInOnline> users = skoContext.Users.Where(o => o.IsOnline)
+                IEnumerable<UsersInOnline> users = _skoContext.Users.Where(o => o.IsOnline)
                     .Select(x => new UsersInOnline
                     {
                         LastName = x.Lastname,
@@ -361,10 +359,9 @@ namespace BLL.Concrete
     }
     public class UserEvaluationSummary
     {
-
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string MidName { get; set; }
+        public string MiddleName { get; set; }
         public int? EvaluationSum { get; set; }
     }
 

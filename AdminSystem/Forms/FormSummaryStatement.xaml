@@ -6,19 +6,20 @@
         xmlns:local="clr-namespace:AdminSystem.Forms"
         mc:Ignorable="d"
         Title="Сводная ведомость" Height="570.095" Width="543.327" WindowStyle="ToolWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Background="#FFEFFFE2">
-        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Left" Margin="383,489,0,0" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click">
+    <Canvas Background="#FFEFFFE2" Margin="10,0,10,10">
+        <Button x:Name="BtnClose" Background="#FFE2EBFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="35" RenderTransformOrigin="0.9,0.199" FontSize="18" Click="BtnClose_Click" Canvas.Left="373" Canvas.Top="488">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/AdminSystem;component/Source/Cancel_32px.png" Height="29"/>
                 <TextBlock Text=" Закрыть" Height="26"/>
             </StackPanel>
         </Button>
-        <ComboBox x:Name="CbxUsersSummaryStatement" HorizontalAlignment="Right" Margin="0,19,20,0" VerticalAlignment="Top" Width="316" FontSize="18" SelectionChanged="CbxUsersSummaryStatement_SelectionChanged">
-        </ComboBox>
+        <ComboBox x:Name="CbxUsersSummaryStatement" HorizontalAlignment="Right" VerticalAlignment="Top" Width="325" FontSize="18" SelectionChanged="CbxUsersSummaryStatement_SelectionChanged" Canvas.Left="182" Canvas.Top="19"/>
         <Label Content="Пользователь" HorizontalAlignment="Left" Margin="57,18,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Image Source="../Source/Users_32px.png" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="42"/>
-        <DataGrid x:Name="DataGridSummaryStatement" Background="#FFE2EBFB" HorizontalAlignment="Left" Height="398" Margin="10,80,0,0" VerticalAlignment="Top" Width="507" FontSize="16" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridSummaryStatement" Background="#FFE2EBFB" HorizontalAlignment="Left" Height="383" VerticalAlignment="Top" Width="497" FontSize="16" IsReadOnly="True" Canvas.Left="10" Canvas.Top="95"/>
         <Label Content="Общее количество баллов:" HorizontalAlignment="Left" Margin="10,486,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Name="LblSummary" Content="0" HorizontalAlignment="Left" Margin="289,480,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Background="White" Foreground="Green"/>
-    </Grid>
+        <Label Name="LblSummary"  Content="0" HorizontalAlignment="Left" Margin="289,480,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="Green"/>
+        <ComboBox x:Name="CbxYear" Canvas.Left="387" Canvas.Top="54" Width="120" FontSize="18" SelectionChanged="CbxYear_SelectionChanged" IsEnabled="False"/>
+        <Label Content="Период" Canvas.Left="325" Canvas.Top="54" FontSize="14"/>
+    </Canvas>
 </Window>
