@@ -70,7 +70,7 @@ namespace BLL.Concrete
             dataGrid.Columns[1].Header = "Имя";
             dataGrid.Columns[2].Header = "Отчество";
             dataGrid.Columns[3].Header = "Общий балл";
-            dataGrid.Columns[4].Visibility = Visibility.Hidden;
+            dataGrid.Columns[4].Header = "Год";
         }
     }
 }

@@ -142,7 +142,8 @@ namespace BLL.Concrete
                     LastName = x.Lastname,
                     FirstName = x.Firstname,
                     MiddleName = x.Middlename,
-                    EvaluationSum = x.Courses.Where(y => y.Year == year).Sum(e => e.Evaluation)
+                    EvaluationSum = x.Courses.Where(y => y.Year == year).Sum(e => e.Evaluation),
+                    Year = year
 
                 }).ToList();
 
@@ -363,6 +364,7 @@ namespace BLL.Concrete
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public int? EvaluationSum { get; set; }
+        public int Year { get; set; }
     }
 
     public class UsersInOnline
