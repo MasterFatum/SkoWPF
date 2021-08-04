@@ -11,7 +11,7 @@ namespace UserSystem.FormsAddEducations
     
     public partial class FormViewItemsFull
     {
-        FtpRepository ftpRepository = new FtpRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public int UserId { get; set; }
         public string MyUrlHyperlink { get; set; }
@@ -62,14 +62,15 @@ namespace UserSystem.FormsAddEducations
 
         private void BtnLocalMatherials_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = @"Zip files (*.zip)|*.zip";
-            saveFile.FileName = String.Format($"{TxbxUser.Text} {TxbxTitle.Text}");
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Filter = @"Zip files (*.zip)|*.zip", FileName = String.Format($"{TxbxUser.Text} {TxbxTitle.Text}")
+            };
 
             if (saveFile.ShowDialog() == true)
             {
                 string fileLocalPath = saveFile.FileName;
-                Task task = new Task(() => ftpRepository.DownloadFile(UserId.ToString(), fileLocalPath, FileName));
+                Task task = new Task(() => _ftpRepository.DownloadFile(UserId.ToString(), fileLocalPath, FileName));
                 task.Start();
             }
         }

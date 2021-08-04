@@ -18,7 +18,7 @@
                 <TextBlock Text=" Сохранить" Height="26"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="TxbxEditTitle" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="457" TextAlignment="Center" FontSize="18" Canvas.Left="124" Canvas.Top="90"/>
+        <TextBox x:Name="TxbxEditTitle" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="455" TextAlignment="Center" FontSize="18" Canvas.Left="124" Canvas.Top="90"/>
         <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="30" Canvas.Top="86"/>
         <TextBox x:Name="TxbxEditDescription" HorizontalAlignment="Left" Height="198" TextWrapping="Wrap" VerticalAlignment="Top" Width="455" FontSize="16" Canvas.Left="124" Canvas.Top="124"/>
         <Label Content="Описание" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="27" Canvas.Top="124"/>

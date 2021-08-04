@@ -45,46 +45,54 @@ namespace UserSystem.FormsAddEducations
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (TxbxTitle.Text != String.Empty && TxbxDescription.Text != String.Empty)
+            try
             {
-                if (TxbxFilePath.Text != String.Empty)
+                if (TxbxTitle.Text != String.Empty && TxbxDescription.Text != String.Empty)
                 {
-                    FileNameGuid = Guid.NewGuid().ToString();
+                    if (TxbxFilePath.Text != String.Empty)
+                    {
+                        FileNameGuid = Guid.NewGuid().ToString();
+                    }
+                    else
+                    {
+                        FileNameGuid = null;
+                    }
+
+                    Course course = new Course
+                    {
+                        UserId = UserIdDirectory,
+                        Category = SelectedCategory,
+                        Title = TxbxTitle.Text.Trim(),
+                        Description = TxbxDescription.Text.Trim(),
+                        Date = String.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}"),
+                        Hyperlink = TxbxHyperlink.Text.Trim(),
+                        FileName = FileNameGuid,
+                        Year = DateTime.Now.Year
+                    };
+
+                    if (TxbxFilePath.Text != String.Empty)
+                    {
+                        if (!_ftpRepository.ExistDirectory(UserIdDirectory.ToString()))
+                        {
+                            _ftpRepository.CreateDirectory(UserIdDirectory.ToString());
+                        }
+
+                        Task task = new Task(() => _ftpRepository.UploadFile("/" + UserIdDirectory + "/", FilePath, FileNameGuid));
+                        task.Start();
+                    }
+                    _courseRepository.AddCourse(course, TxbxTitle, TxbxDescription, TxbxHyperlink, TxbxFilePath);
                 }
                 else
                 {
-                    FileNameGuid = null;
+                    MessageBox.Show("Одно или несколько полей не заполнено!", "", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 }
-
-                Course course = new Course
-                {
-                    UserId = UserIdDirectory,
-                    Category = SelectedCategory,
-                    Title = TxbxTitle.Text.Trim(),
-                    Description = TxbxDescription.Text.Trim(),
-                    Date = String.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}"),
-                    Hyperlink = TxbxHyperlink.Text.Trim(),
-                    FileName = FileNameGuid,
-                    Year = DateTime.Now.Year
-                };
-
-                if (TxbxFilePath.Text != String.Empty)
-                {
-                    if (!_ftpRepository.ExistDirectory(UserIdDirectory.ToString()))
-                    {
-                        _ftpRepository.CreateDirectory(UserIdDirectory.ToString());
-                    }
-
-                    Task task = new Task(() => _ftpRepository.UploadFile("/" + UserIdDirectory + "/", FilePath, FileNameGuid));
-                    task.Start();
-                }
-                _courseRepository.AddCourse(course, TxbxTitle, TxbxDescription, TxbxHyperlink, TxbxFilePath);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Одно или несколько полей не заполнено!", "", MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void BtnBrowseFile_Click(object sender, RoutedEventArgs e)

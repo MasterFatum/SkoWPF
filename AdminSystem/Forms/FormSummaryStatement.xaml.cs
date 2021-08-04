@@ -12,11 +12,11 @@ namespace AdminSystem.Forms
             InitializeComponent();
         }
 
-        UserRepository _userRepository = new UserRepository();
+        readonly UserRepository _userRepository = new UserRepository();
 
-        CourseRepository _courseRepository = new CourseRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
 
-        OtherRepository _otherRepository = new OtherRepository();
+        readonly OtherRepository _otherRepository = new OtherRepository();
 
         public String[] FullName { get; set; }
         public int UserId { get; set; }

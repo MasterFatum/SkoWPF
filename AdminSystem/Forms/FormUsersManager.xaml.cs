@@ -9,17 +9,10 @@ namespace AdminSystem.Forms
 
     public partial class FormUsersManager
     {
-        readonly UserRepository userRepository = new UserRepository();
-        readonly FtpRepository ftpRepository = new FtpRepository();
+        readonly UserRepository _userRepository = new UserRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public string User { get; set; }
-        public int UserId { get; set; }
-        public string Lastname { get; set; }
-        public string Firstname { get; set; }
-        public string Middlename { get; set; }
-        public string Position { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
 
         public FormUsersManager(string user)
         {
@@ -27,7 +20,7 @@ namespace AdminSystem.Forms
 
             User = user;
 
-            DataGridAllUsers.ItemsSource = userRepository.GetAllUser();
+            DataGridAllUsers.ItemsSource = _userRepository.GetAllUser();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -42,7 +35,7 @@ namespace AdminSystem.Forms
 
         private void BtnUpdateListUsers_Click(object sender, RoutedEventArgs e)
         {
-            DataGridAllUsers.ItemsSource = userRepository.GetAllUser();
+            DataGridAllUsers.ItemsSource = _userRepository.GetAllUser();
 
             new OtherRepository().SettingDataGridAdmins(DataGridAllUsers);
         }
@@ -127,7 +120,7 @@ namespace AdminSystem.Forms
 
                     TxBlChangeUser.Text = " Изменить";
 
-                    userRepository.EditUser(Convert.ToInt32(TxbxUserId.Text), TxbxLastname.Text.Trim(),
+                    _userRepository.EditUser(Convert.ToInt32(TxbxUserId.Text), TxbxLastname.Text.Trim(),
                         TxbxFirstname.Text.Trim(), TxbxMiddlename.Text.Trim(), TxbxPosition.Text.Trim(),
                         TxbxEmail.Text.Trim(), TxbxPassword.Text.Trim(), CbxPrivilege.SelectedItem.ToString());
                 }
@@ -142,11 +135,11 @@ namespace AdminSystem.Forms
         {
             if (MessageBox.Show("Удалить данного пользователя?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                userRepository.DeleteUser(Convert.ToInt32(TxbxUserId.Text));
+                _userRepository.DeleteUser(Convert.ToInt32(TxbxUserId.Text));
 
-                if (ftpRepository.ExistDirectory(TxbxUserId.Text))
+                if (_ftpRepository.ExistDirectory(TxbxUserId.Text))
                 {
-                    ftpRepository.DeleteFtpDirectory(TxbxUserId.Text);
+                    _ftpRepository.DeleteFtpDirectory(TxbxUserId.Text);
                 }
                 
                 BtnUpdateListUsers_Click(null, null);
@@ -211,7 +204,7 @@ namespace AdminSystem.Forms
                     };
 
 
-                    userRepository.AddUser(user);
+                    _userRepository.AddUser(user);
 
                     BtnUpdateListUsers_Click(null, null);
 

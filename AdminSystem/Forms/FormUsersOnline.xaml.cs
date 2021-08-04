@@ -24,12 +24,13 @@ namespace AdminSystem.Forms
             {
                 IEnumerable<UsersInOnline> users = new UserRepository().UsersInOnline();
 
-                var usersInOnlines = users as UsersInOnline[] ?? users.ToArray();
-                LblUsersCount.Content = usersInOnlines.Count();
+                var usersInOnline = users as UsersInOnline[] ?? users.ToArray();
 
-                foreach (var usersInOnline in usersInOnlines)
+                LblUsersCount.Content = usersInOnline.Length;
+
+                foreach (var user in usersInOnline)
                 {
-                    LbUserOnline.Items.Add($"{usersInOnline.LastName} {usersInOnline.FirstName} {usersInOnline.MiddleName} ({usersInOnline.Position})");
+                    LbUserOnline.Items.Add($"{user.LastName} {user.FirstName} {user.MiddleName} ({user.Position})");
                 }
             }
             catch (Exception ex)

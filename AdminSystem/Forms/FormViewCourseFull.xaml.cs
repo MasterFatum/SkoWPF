@@ -12,8 +12,8 @@ namespace AdminSystem.Forms
 
     public partial class FormViewCourseFull
     {
-        CourseRepository _courseRepository = new CourseRepository();
-        FtpRepository _ftpRepository = new FtpRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public string User { get; set; }
         public int Id { get; set; }

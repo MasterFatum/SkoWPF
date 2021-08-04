@@ -18,7 +18,7 @@ namespace Authorization
             TxbxMiddlename.TextChanged += TxbxLastname_TextChanged;
         }
 
-        readonly UserRepository userRepository = new UserRepository();
+        readonly UserRepository _userRepository = new UserRepository();
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +56,7 @@ namespace Authorization
                             IsOnline = false
                         };
 
-                        userRepository.AddUser(user);
+                        _userRepository.AddUser(user);
 
                         BtnClear_Click(null, null);
                         BtnClose_Click(null, null);

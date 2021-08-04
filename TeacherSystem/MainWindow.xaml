@@ -73,8 +73,8 @@
                 <MenuItem Background="#FFE2EBFB" Header="Выйти" Click="MenuItem_Click_1" FontWeight="Normal"></MenuItem>
             </MenuItem>
         </Menu>
-        <Label Content="Общее количество баллов:" FontSize="16" Width="211" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="129"/>
-        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" Height="34" Foreground="DarkGreen" Width="81" TextAlignment="Center" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="889" Canvas.Top="171"/>
+        <Label Content="Общее количество баллов:" FontSize="16" Width="211" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="827" Canvas.Top="129"/>
+        <TextBox x:Name="TxbxAllRating" IsReadOnly="True" Height="34" Foreground="DarkGreen" Width="81" TextAlignment="Center" FontSize="24" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="895" Canvas.Top="170"/>
         <Label Content="Баллы отсутствуют" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="106" Canvas.Top="4"/>
         <Label Content="Баллы выставлены" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.308" Canvas.Left="234" Canvas.Top="4"/>
         <Button x:Name="BtnMainUpdate2" Background="#FFE2EBFB" VerticalAlignment="Top" Width="56" Height="35" FontSize="18" Click="BtnMainUpdate_Click" HorizontalAlignment="Right" Canvas.Left="986" Canvas.Top="64">

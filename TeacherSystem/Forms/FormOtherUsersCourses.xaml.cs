@@ -24,7 +24,7 @@ namespace UserSystem.FormsAddEducations
         public string Hyperlink { get; set; }
         public string Filename { get; set; }
 
-        readonly CourseRepository courseRepository = new CourseRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +52,7 @@ namespace UserSystem.FormsAddEducations
                         String[] words = usernameFio.Split(new [] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                         DataGridOtherUsersCategory.ItemsSource =
-                            courseRepository.GetCoursesByFio(words[0], words[1], words[2]);
+                            _courseRepository.GetCoursesByFio(words[0], words[1], words[2]);
 
                         new OtherRepository().SettingDataGridUsers(DataGridOtherUsersCategory);
                     }
@@ -63,7 +63,7 @@ namespace UserSystem.FormsAddEducations
                         String[] words = usernameFio.Split(new [] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                         DataGridOtherUsersCategory.ItemsSource = 
-                            courseRepository.GetCoursesByFio(words[0], words[1], words[2], ((ComboBoxItem)CbxCategory.SelectedItem).Content.ToString());
+                            _courseRepository.GetCoursesByFio(words[0], words[1], words[2], ((ComboBoxItem)CbxCategory.SelectedItem).Content.ToString());
 
                         new OtherRepository().SettingDataGridUsers(DataGridOtherUsersCategory);
                     }

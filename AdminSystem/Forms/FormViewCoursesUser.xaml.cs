@@ -26,8 +26,8 @@ namespace AdminSystem.Forms
         public string FilePath { get; set; }
         public int Year { get; set; }
 
-        CourseRepository _courseRepository = new CourseRepository();
-        OtherRepository _otherRepository = new OtherRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
+        readonly OtherRepository _otherRepository = new OtherRepository();
         
         public FormViewCoursesUser(int id, string lastname, string firstname, string middlename, string user)
         {
@@ -118,9 +118,9 @@ namespace AdminSystem.Forms
             new OtherRepository().SettingDataGridUsers(DataGridUserCourses);
         }
 
-        SolidColorBrush orange = new SolidColorBrush(Colors.Orange);
-        SolidColorBrush white = new SolidColorBrush(Colors.White);
-        SolidColorBrush green = new SolidColorBrush(Colors.Green);
+        readonly SolidColorBrush _orange = new SolidColorBrush(Colors.Orange);
+        readonly SolidColorBrush _white = new SolidColorBrush(Colors.White);
+        readonly SolidColorBrush _green = new SolidColorBrush(Colors.Green);
 
         private void DataGridUserCourses_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -128,15 +128,15 @@ namespace AdminSystem.Forms
 
             if (course.Evaluation == null)
             {
-                e.Row.Background = orange;
+                e.Row.Background = _orange;
             }
             if (course.Evaluation != null && course.DateEdit == null)
             {
-                e.Row.Background = white;
+                e.Row.Background = _white;
             }
             if (course.Evaluation != null && course.DateEdit != null)
             {
-                e.Row.Background = green;
+                e.Row.Background = _green;
             }
         }
     }

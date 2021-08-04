@@ -9,7 +9,7 @@ namespace Authorization
 {
     public partial class MainWindow
     {
-        readonly UserRepository userRepository = new UserRepository();
+        readonly UserRepository _userRepository = new UserRepository();
 
         public MainWindow()
         {
@@ -73,7 +73,7 @@ namespace Authorization
                     //АВТОРИЗАЦИЯ ПОЛЬЗОВАТЕЛЯ
                     case "Преподаватель":
                         Task<User> userResult =
-                            userRepository.ValidationUserAsync(TxbxLogin.Text.Trim(), TxbxPassword.Password);
+                            _userRepository.ValidationUserAsync(TxbxLogin.Text.Trim(), TxbxPassword.Password);
 
                         User user = userResult.Result;
 
@@ -115,7 +115,7 @@ namespace Authorization
                     //АВТОРИЗАЦИЯ АДМИНИСТРАТОРА
                     case "Администратор":
                         Task<User> userAdmin =
-                            userRepository.ValidationAdminAsync(TxbxLogin.Text.Trim(), TxbxPassword.Password);
+                            _userRepository.ValidationAdminAsync(TxbxLogin.Text.Trim(), TxbxPassword.Password);
 
                         User admin = userAdmin.Result;
 

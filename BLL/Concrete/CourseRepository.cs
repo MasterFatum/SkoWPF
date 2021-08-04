@@ -313,6 +313,7 @@ namespace Bll.Concrete
                     sheet1.Columns[j + 1].ColumnWidth = 15;
                     myRange.Value2 = dataGrid.Columns[j].Header;
                 }
+
                 for (int i = 0; i < dataGrid.Columns.Count; i++)
                 {
                     for (int j = 0; j < dataGrid.Items.Count; j++)
@@ -320,9 +321,13 @@ namespace Bll.Concrete
                         var b = dataGrid.Columns[i].GetCellContent(dataGrid.Items[j]) as TextBlock;
                         Range myRange = (Range)sheet1.Cells[j + 2, i + 1];
 
-                        if (b != null) myRange.Value2 = b.Text;
+                        if (b != null)
+                        {
+                            myRange.Value2 = b.Text;
+                        }
                     }
                 }
+
             }
             catch (Exception ex)
             {

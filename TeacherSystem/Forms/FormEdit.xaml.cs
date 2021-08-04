@@ -12,18 +12,14 @@ namespace UserSystem.FormsAddEducations
 {
     public partial class FormEdit
     {
-        CourseRepository courseRepository = new CourseRepository();
-        FtpRepository ftpRepository = new FtpRepository();
+        readonly CourseRepository _courseRepository = new CourseRepository();
+        readonly FtpRepository _ftpRepository = new FtpRepository();
 
         public int Id { get; set; }
         public int UserIdEdit { get; set; }
         public string CategoryEdit { get; set; }
-        public string TitleEdit { get; set; }
-        public string DescriptionEdit { get; set; }
-        public string HyperlinkEdit { get; set; }
         public string FilePath { get; set; }
         public string FilePathNew { get; set; }
-        public string DateEdit { get; set; }
         public string FileNameGuid { get; set; }
         public string FileNameOld { get; set; }
 
@@ -82,16 +78,16 @@ namespace UserSystem.FormsAddEducations
                     FileName = FilePath
                 };
 
-                Task taskDeleteOdlFile = new Task(() => ftpRepository.DeleteFile("/" + UserIdEdit + "/", FileNameOld));
+                Task taskDeleteOdlFile = new Task(() => _ftpRepository.DeleteFile("/" + UserIdEdit + "/", FileNameOld));
                 taskDeleteOdlFile.Start();
 
-                Task taskAddNewFile = new Task(() => ftpRepository.UploadFile("/" + UserIdEdit + "/", FilePathNew, FileNameGuid));
+                Task taskAddNewFile = new Task(() => _ftpRepository.UploadFile("/" + UserIdEdit + "/", FilePathNew, FileNameGuid));
                 taskAddNewFile.Start();
 
                 
             }
 
-            courseRepository.EditCourse(course);
+            _courseRepository.EditCourse(course);
             Close();
             
         }
@@ -105,10 +101,10 @@ namespace UserSystem.FormsAddEducations
 
         private void BtnBrowseFile_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.Filter = @"(*.zip)|*.zip";
-
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = @"(*.zip)|*.zip"
+            };
 
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

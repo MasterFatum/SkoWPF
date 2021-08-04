@@ -23,10 +23,6 @@ namespace TeacherSystem
         public new string Title { get; set; }
         public string Description { get; set; }
         public int? Evaluation { get; set; }
-        public string Lastname { get; set; }
-        public string Firstname { get; set; }
-        public string Middlename { get; set; }
-        public string Position { get; set; }
         public string Email { get; set; }
         public string Date { get; set; }
         public string Hyperlink { get; set; }
@@ -83,6 +79,7 @@ namespace TeacherSystem
 
         private void BtnMainUpdate_Click(object sender, RoutedEventArgs e)
         {
+            CbxYear.ItemsSource = _courseRepository.GetYears(Convert.ToInt32(TxbxUserId.Text));
             DataGridMain.ItemsSource = _courseRepository.GetCoursesByUserId(Convert.ToInt32(TxbxUserId.Text), Convert.ToInt16(CbxYear.SelectedItem));
             CbxMainShowCategory.SelectedIndex = -1;
             _otherRepository.SettingDataGridUsers(DataGridMain);

@@ -3,7 +3,7 @@
 
 namespace AdminSystem.Forms
 {
-    public partial class FormChooseSheet : Window
+    public partial class FormChooseSheet
     {
         public FormChooseSheet()
         {
